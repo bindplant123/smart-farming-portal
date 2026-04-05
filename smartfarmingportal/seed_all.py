@@ -9,7 +9,17 @@ from portal.models import Crop, CropCalendar, Product
 from django.contrib.auth.models import User
 
 # ==========================================================
-# 🌿 1. SEED CROPS (90+ Types)
+# 🔐 1. ENSURE ADMIN USER EXISTS
+# ==========================================================
+admin_user = User.objects.filter(username="admin").first()
+if not admin_user:
+    print("👤 Creating Superuser...")
+    admin_user = User.objects.create_superuser("admin", "admin@example.com", "admin123")
+else:
+    print("👤 Admin user already exists.")
+
+# ==========================================================
+# 🌿 2. SEED CROPS (90+ Types)
 # ==========================================================
 crop_names = [
     'Rice','Wheat','Maize','Barley','Oats','Rye','Millet','Sorghum','Buckwheat','Quinoa',
@@ -36,13 +46,14 @@ for name in crop_names:
     if created:
         for week in range(1, 21):
             CropCalendar.objects.get_or_create(
+                user=admin_user,  # ✅ FIXED: Now assigned to admin
                 crop=crop,
                 week_number=week,
                 defaults={"expected_height": week * 5}
             )
 
 # ==========================================================
-# 🛒 2. SEED PRODUCTS (Market Data)
+# 🛒 3. SEED PRODUCTS (Market Data)
 # ==========================================================
 products_data = [
     {'name': 'Urea Fertilizer', 'category': 'fertilizer', 'price': 450.0, 'brand': 'IFFCO', 'stock_quantity': 100},
@@ -70,12 +81,5 @@ for item in products_data:
             'description': f"High quality {item['name']} for better yield."
         }
     )
-
-# ==========================================================
-# 🔐 3. CREATE SUPERUSER (Optional)
-# ==========================================================
-if not User.objects.filter(username="admin").exists():
-    print("👤 Creating Superuser...")
-    User.objects.create_superuser("admin", "admin@example.com", "admin123")
 
 print("✅ Seeding Complete!")
