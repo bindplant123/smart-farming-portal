@@ -1,0 +1,70 @@
+{% extends "portal/base.html" %}
+
+{% block title %}
+    Crop Performance
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-4">
+
+    <div class="text-center mb-4">
+        <h3 class="fw-bold text-success">
+            📊 Crop Performance Overview
+        </h3>
+        <p class="text-muted mb-0">
+            Compare planned crop growth with your actual performance
+        </p>
+    </div>
+
+    <div class="card shadow-sm border-0 rounded-4 p-4">
+        <canvas id="performanceChart"></canvas>
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+{% block extra_js %}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const labels = JSON.parse('{{ labels_json|default:"[]"|escapejs }}');
+    const plannedData = JSON.parse('{{ planned_json|default:"[]"|escapejs }}');
+    const actualData = JSON.parse('{{ actual_json|default:"[]"|escapejs }}');
+
+    const ctx = document.getElementById('performanceChart').getContext('2d');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Planned Growth',
+                    data: plannedData,
+                    borderWidth: 2,
+                    fill: false
+                },
+                {
+                    label: 'Your Performance',
+                    data: actualData,
+                    borderWidth: 2,
+                    fill: false
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+{% endblock %}

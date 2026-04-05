@@ -1,0 +1,60 @@
+{% extends "portal/base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+<h2 class="mb-4">🌾 Crop Performance Graph</h2>
+
+<canvas id="performanceChart"></canvas>
+
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+const cropNames = JSON.parse('{{ crop_names|escapejs }}');
+const performanceData = JSON.parse('{{ performance_data|escapejs }}');
+
+
+const ctx = document.getElementById('performanceChart').getContext('2d');
+
+new Chart(ctx, {
+    type: 'bar',
+
+    data: {
+        labels: cropNames,
+        datasets: [{
+            label: 'Crop Performance %',
+            data: performanceData,
+            backgroundColor: [
+                '#4CAF50',
+                '#2196F3',
+                '#FFC107',
+                '#FF5722',
+                '#9C27B0'
+            ],
+            borderRadius: 10
+        }]
+    },
+
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                display: true
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                max: 100
+            }
+        }
+    }
+});
+
+</script>
+
+{% endblock %}

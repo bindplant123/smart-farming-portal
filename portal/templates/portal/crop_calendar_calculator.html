@@ -1,0 +1,115 @@
+{% extends "portal/base.html" %}
+{% load i18n %}
+
+{% block title %}
+    Smart Crop Calendar Calculator
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <!-- Main Card -->
+            <div class="card shadow-lg border-0 rounded-4">
+
+                <!-- Header -->
+                <div class="card-header bg-success text-white rounded-top-4 py-4 text-center">
+                    <h3 class="mb-2">🌱 Smart Crop Calendar</h3>
+                    <p class="mb-0">
+                        Select your crop and sowing date to generate your personalized farming schedule
+                    </p>
+                </div>
+
+                <div class="card-body p-4">
+
+                    <!-- Django Messages -->
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }} alert-dismissible fade show">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <!-- Form -->
+                    <form method="POST" action="{% url 'portal:crop_calendar_calculator' %}">
+                        {% csrf_token %}
+
+                        <!-- Crop Selection -->
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">
+                                <i class="bi bi-flower1 me-2"></i> Select Crop *
+                            </label>
+                            <select name="crop" class="form-select form-select-lg" required>
+                                <option value="">-- Choose a Crop --</option>
+                                {% for crop in crops %}
+                                    <option value="{{ crop.id }}">
+                                        {{ crop.emoji }} {{ crop.name }} 
+                                        ({{ crop.growth_duration_days }} days)
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <!-- Sowing Date -->
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">
+                                <i class="bi bi-calendar-event me-2"></i> Sowing / Planting Date *
+                            </label>
+                            <input type="date"
+                                   name="sowing_date"
+                                   class="form-control form-control-lg"
+                                   required>
+                        </div>
+
+                        <!-- Field Name -->
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">
+                                <i class="bi bi-geo-alt me-2"></i> Field / Plot Name (Optional)
+                            </label>
+                            <input type="text"
+                                   name="field_name"
+                                   class="form-control"
+                                   placeholder="Example: North Field, Farm A, Kitchen Garden">
+                        </div>
+
+                        <!-- Info Box -->
+                        <div class="alert alert-info border-0 shadow-sm">
+                            <h5 class="alert-heading mb-3">📅 What Will Be Generated:</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="mb-0 small">
+                                        <li>🌱 <strong>Sowing</strong> – Day 0 (Start)</li>
+                                        <li>💧 <strong>Watering</strong> – Weekly reminders</li>
+                                        <li>🧪 <strong>Fertilizer 1</strong> – First application</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="mb-0 small">
+                                        <li>🧪 <strong>Fertilizer 2</strong> – Second application</li>
+                                        <li>🐛 <strong>Pesticide</strong> – Prevention stage</li>
+                                        <li>🌾 <strong>Harvest</strong> – Crop ready date</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-success btn-lg w-100 py-3 shadow-sm">
+                            <i class="bi bi-calendar-plus me-2"></i>
+                            Generate My Calendar
+                        </button>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

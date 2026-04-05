@@ -1,0 +1,18 @@
+{% load i18n %}
+{% extends "portal/base.html" %}
+{% block content %}
+<h2>Crop Advice</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <label>Enter Crop Name:</label>
+    <input type="text" name="crop" placeholder="e.g., Wheat" required>
+    <button type="submit">Get Advice</button>
+</form>
+
+{% if advice %}
+    <div style="background:#fff3e0;padding:10px;margin-top:15px;">
+        <strong>{{ crop_name }} Advice:</strong> {{ advice }}
+    </div>
+{% endif %}
+{% endblock %}

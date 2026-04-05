@@ -1,0 +1,189 @@
+# Kannada translations for Smart Farming Portal
+msgid ""
+msgstr ""
+"Project-Id-Version: SmartFarmingPortal\n"
+"Language: kn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Smart Farming Portal"
+msgstr "ಸ್ಮಾರ್ಟ್ ಕೃಷಿ ಪೋರ್ಟಲ್"
+
+msgid "Profile"
+msgstr "ಪ್ರೊಫೈಲ್"
+
+msgid "Settings"
+msgstr "ಸೆಟ್ಟಿಂಗ್‌ಗಳು"
+
+msgid "Logout"
+msgstr "ಲಾಗ್‌ಔಟ್"
+
+msgid "Login"
+msgstr "ಲಾಗಿನ್"
+
+msgid "Sign Up"
+msgstr "ಸೈನ್ ಅಪ್"
+
+msgid "Dashboard"
+msgstr "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್"
+
+msgid "Community"
+msgstr "ಸಮುದಾಯ"
+
+msgid "Market"
+msgstr "ಮಾರುಕಟ್ಟೆ"
+
+msgid "Crop Calendar"
+msgstr "ಬೆಳೆ ಕ್ಯಾಲೆಂಡರ್"
+
+msgid "Performance"
+msgstr "ಕಾರ್ಯಕ್ಷಮತೆ"
+
+msgid "Weather"
+msgstr "ಹವಾಮಾನ"
+
+msgid "Fertilizer"
+msgstr "ಗೊಬ್ಬರ"
+
+msgid "Pesticides"
+msgstr "ಕೀಟನಾಶಕ"
+
+msgid "Home"
+msgstr "ಮುಖಪುಟ"
+
+msgid "You"
+msgstr "ನೀವು"
+
+msgid "Smart Farm Market"
+msgstr "ಸ್ಮಾರ್ಟ್ ಫಾರ್ಮ್ ಮಾರುಕಟ್ಟೆ"
+
+msgid "Search product..."
+msgstr "ಉತ್ಪನ್ನ ಹುಡುಕಿ..."
+
+msgid "All"
+msgstr "ಎಲ್ಲಾ"
+
+msgid "Seeds"
+msgstr "ಬೀಜಗಳು"
+
+msgid "Tools"
+msgstr "ಉಪಕರಣಗಳು"
+
+msgid "Organic"
+msgstr "ಸಾವಯವ"
+
+msgid "Stock"
+msgstr "ಸ್ಟಾಕ್"
+
+msgid "Out of Stock"
+msgstr "ಸ್ಟಾಕ್ ಇಲ್ಲ"
+
+msgid "Add to Cart"
+msgstr "ಕಾರ್ಟ್‌ಗೆ ಸೇರಿಸಿ"
+
+msgid "View"
+msgstr "ವೀಕ್ಷಿಸಿ"
+
+msgid "No products available"
+msgstr "ಯಾವುದೇ ಉತ್ಪನ್ನಗಳು ಲಭ್ಯವಿಲ್ಲ"
+
+msgid "Back to Market"
+msgstr "ಮಾರುಕಟ್ಟೆಗೆ ಹಿಂತಿರುಗಿ"
+
+msgid "Category"
+msgstr "ವರ್ಗ"
+
+msgid "Brand"
+msgstr "ಬ್ರ್ಯಾಂಡ್"
+
+msgid "In Stock"
+msgstr "ಸ್ಟಾಕ್‌ನಲ್ಲಿದೆ"
+
+msgid "Description"
+msgstr "ವಿವರಣೆ"
+
+msgid "Language"
+msgstr "ಭಾಷೆ"
+
+msgid "Update Language"
+msgstr "ಭಾಷೆ ನವೀಕರಿಸಿ"
+
+msgid "Account Settings"
+msgstr "ಖಾತೆ ಸೆಟ್ಟಿಂಗ್‌ಗಳು"
+
+msgid "Selected Crops"
+msgstr "ಆಯ್ಕೆ ಮಾಡಿದ ಬೆಳೆಗಳು"
+
+msgid "Update your crop preferences to get personalized recommendations."
+msgstr "ವೈಯಕ್ತಿಕ ಶಿಫಾರಸುಗಳಿಗಾಗಿ ನಿಮ್ಮ ಬೆಳೆ ಆದ್ಯತೆಗಳನ್ನು ನವೀಕರಿಸಿ."
+
+msgid "Change Crops"
+msgstr "ಬೆಳೆಗಳನ್ನು ಬದಲಿಸಿ"
+
+msgid "Sign out of your account."
+msgstr "ನಿಮ್ಮ ಖಾತೆಯಿಂದ ಸೈನ್ ಔಟ್ ಮಾಡಿ."
+
+msgid "Back to Home"
+msgstr "ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ"
+
+msgid "Hello Farmer"
+msgstr "ನಮಸ್ಕಾರ ರೈತ"
+
+msgid "Sign in to manage your crops and agricultural activities"
+msgstr "ನಿಮ್ಮ ಬೆಳೆಗಳು ಮತ್ತು ಕೃಷಿ ಚಟುವಟಿಕೆಗಳನ್ನು ನಿರ್ವಹಿಸಲು ಸೈನ್ ಇನ್ ಮಾಡಿ"
+
+msgid "Email or Phone Number"
+msgstr "ಇಮೇಲ್ ಅಥವಾ ಫೋನ್ ಸಂಖ್ಯೆ"
+
+msgid "Phone number must contain exactly 10 digits."
+msgstr "ಫೋನ್ ಸಂಖ್ಯೆಯಲ್ಲಿ ನಿಖರವಾಗಿ 10 ಅಂಕಿಗಳಿರಬೇಕು."
+
+msgid "Password"
+msgstr "ಪಾಸ್‌ವರ್ಡ್"
+
+msgid "Select Your Crop"
+msgstr "ನಿಮ್ಮ ಬೆಳೆ ಆರಿಸಿ"
+
+msgid "Upload Crop Image for Detection"
+msgstr "ಪತ್ತೆಗಾಗಿ ಬೆಳೆ ಚಿತ್ರ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ"
+
+msgid "Select from Gallery"
+msgstr "ಗ್ಯಾಲರಿಯಿಂದ ಆಯ್ಕೆ ಮಾಡಿ"
+
+msgid "Take a Picture"
+msgstr "ಫೋಟೋ ತೆಗೆಯಿರಿ"
+
+msgid "Upload Image"
+msgstr "ಚಿತ್ರ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ"
+
+msgid "Select Language"
+msgstr "ಭಾಷೆ ಆಯ್ಕೆ ಮಾಡಿ"
+
+msgid "Choose Your Language"
+msgstr "ನಿಮ್ಮ ಭಾಷೆ ಆಯ್ಕೆ ಮಾಡಿ"
+
+msgid "Create Your Account"
+msgstr "ನಿಮ್ಮ ಖಾತೆ ರಚಿಸಿ"
+
+msgid "Market & Fertilizers"
+msgstr "ಮಾರುಕಟ್ಟೆ ಮತ್ತು ಗೊಬ್ಬರಗಳು"
+
+msgid "Fertilizer Recommendations"
+msgstr "ಗೊಬ್ಬರ ಶಿಫಾರಸುಗಳು"
+
+msgid "Optimized for your selected crop:"
+msgstr "ನಿಮ್ಮ ಆಯ್ಕೆ ಮಾಡಿದ ಬೆಳೆಗಾಗಿ ಅನುಕೂಲಿಸಲಾಗಿದೆ:"
+
+msgid "Suggested Fertilizer"
+msgstr "ಸೂಚಿಸಿದ ಗೊಬ್ಬರ"
+
+msgid "Standard Quantity"
+msgstr "ಪ್ರಮಾಣಿತ ಪ್ರಮಾಣ"
+
+msgid "Current Market Rate"
+msgstr "ಪ್ರಸ್ತುತ ಮಾರುಕಟ್ಟೆ ದರ"
+
+msgid "Locate Nearest Seller"
+msgstr "ಹತ್ತಿರದ ಮಾರಾಟಗಾರರನ್ನು ಹುಡುಕಿ"

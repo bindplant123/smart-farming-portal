@@ -1,0 +1,121 @@
+{% extends 'portal/base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Settings" %} - Smart Farming Portal{% endblock %}
+
+{% block content %}
+<div class="settings-container">
+    <h1>⚙️ {% trans "Settings" %}</h1>
+    
+    {% if messages %}
+    <div style="background:#d4edda;border:1px solid #c3e6cb;padding:12px;border-radius:8px;margin-bottom:15px;color:#155724;">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="settings-card">
+        <h2>{% trans "Account Settings" %}</h2>
+        
+        <!-- LANGUAGE FORM - Separate form using Django's built-in i18n -->
+        <div class="form-group">
+            <label>🌐 {% trans "Language" %} / भाषा / மொழி</label>
+            
+            <form action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ request.path }}">
+                <select name="language" class="form-control">
+                    <option value="en" {% if request.LANGUAGE_CODE == 'en' %}selected{% endif %}>🇺🇸 English</option>
+                    <option value="hi" {% if request.LANGUAGE_CODE == 'hi' %}selected{% endif %}>🇮🇳 हिन्दी (Hindi)</option>
+                    <option value="ta" {% if request.LANGUAGE_CODE == 'ta' %}selected{% endif %}>🇮🇳 தமிழ் (Tamil)</option>
+                    <option value="te" {% if request.LANGUAGE_CODE == 'te' %}selected{% endif %}>🇮🇳 తెలుగు (Telugu)</option>
+                    <option value="bn" {% if request.LANGUAGE_CODE == 'bn' %}selected{% endif %}>🇮🇳 বাংলা (Bengali)</option>
+                    <option value="mr" {% if request.LANGUAGE_CODE == 'mr' %}selected{% endif %}>🇮🇳 मराठी (Marathi)</option>
+                    <option value="gu" {% if request.LANGUAGE_CODE == 'gu' %}selected{% endif %}>🇮🇳 ગુજрати (Gujarati)</option>
+                    <option value="kn" {% if request.LANGUAGE_CODE == 'kn' %}selected{% endif %}>🇮🇳 ಕನ್ನಡ (Kannada)</option>
+                    <option value="pa" {% if request.LANGUAGE_CODE == 'pa' %}selected{% endif %}>🇮🇳 ਪੰਜਾਬੀ (Punjabi)</option>
+                </select>
+                <button type="submit" class="btn btn-primary">🌐 {% trans "Update Language" %}</button>
+            </form>
+        </div>
+        
+        <hr>
+        
+        <!-- OTHER SETTINGS -->
+        <form method="post" action="{% url 'portal:settings' %}">
+            {% csrf_token %}
+            
+            <!-- Crop Selection -->
+            <div class="form-group">
+                <label>🌾 {% trans "Selected Crops" %}</label>
+                <p>{% trans "Update your crop preferences to get personalized recommendations." %}</p>
+                <button type="submit" name="change_crops" class="btn btn-success">{% trans "Change Crops" %}</button>
+            </div>
+            
+            <hr>
+            
+            <!-- Logout -->
+            <div class="form-group">
+                <label>🚪 {% trans "Logout" %}</label>
+                <p>{% trans "Sign out of your account." %}</p>
+                <button type="submit" name="logout" class="btn btn-danger">{% trans "Logout" %}</button>
+            </div>
+        </form>
+    </div>
+    
+    <a href="{% url 'portal:home' %}" class="btn btn-secondary">⬅️ {% trans "Back to Home" %}</a>
+</div>
+
+<style>
+    .settings-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    .settings-card {
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 10px;
+    }
+    
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        font-size: 15px;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        text-decoration: none;
+        display: inline-block;
+    }
+    
+    .btn-primary { background: #007bff; color: white; }
+    .btn-success { background: #28a745; color: white; }
+    .btn-danger { background: #dc3545; color: white; }
+    .btn-secondary { background: #6c757d; color: white; }
+    
+    .btn:hover { opacity: 0.85; }
+</style>
+{% endblock %}

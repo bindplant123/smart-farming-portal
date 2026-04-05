@@ -1,0 +1,42 @@
+{% extends "portal/base.html" %}
+{% block content %}
+<h2>Products</h2>
+
+<form method="get" style="margin-bottom:15px;">
+    <input type="text" name="q" placeholder="Search products..." value="{{ query }}">
+    <select name="category">
+        <option value="">All Categories</option>
+        <option value="pesticide" {% if active_category == 'pesticide' %}selected{% endif %}>Pesticides</option>
+        <option value="fertilizer" {% if active_category == 'fertilizer' %}selected{% endif %}>Fertilizers</option>
+        <option value="seeds" {% if active_category == 'seeds' %}selected{% endif %}>Seeds</option>
+        <option value="organic_protection" {% if active_category == 'organic_protection' %}selected{% endif %}>Organic Protection</option>
+        <option value="tools" {% if active_category == 'tools' %}selected{% endif %}>Tools & Machinery</option>
+        <option value="cattle_feed" {% if active_category == 'cattle_feed' %}selected{% endif %}>Cattle Feed</option>
+        <option value="organic_nutrition" {% if active_category == 'organic_nutrition' %}selected{% endif %}>Organic Nutrition</option>
+    </select>
+    <button type="submit">Filter</button>
+</form>
+
+{% if products %}
+    <ul>
+        {% for product in products %}
+            <li>
+                <strong>{{ product.name }}</strong> {% if product.brand %}({{ product.brand }}){% endif %}<br>
+                Category: {{ product.get_category_display }}<br>
+                Price: ₹{{ product.price }}<br>
+                {% if product.recommended_crops.all %}
+                    Recommended for: {{ product.recommended_crops.all|join:", " }}<br>
+                {% endif %}
+                {% if product.in_stock %}
+                    <a href="{% url 'add_to_cart' product.id %}">Add to Cart</a>
+                {% else %}
+                    <span style="color:red;">Out of Stock</span>
+                {% endif %}
+            </li>
+            <hr>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No products found.</p>
+{% endif %}
+{% endblock %}

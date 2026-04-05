@@ -1,0 +1,120 @@
+{% extends "portal/clean_base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Select Language" %}{% endblock %}
+
+{% block content %}
+<div class="center-box">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                
+                <!-- Title -->
+                <div class="text-center mb-5">
+                    <h1 class="namaste-title">
+                        नमस्ते <span class="text-muted">(Namaste)</span>
+                    </h1>
+                    <h4 class="text-success mt-2">{% trans "Choose Your Language" %}</h4>
+                </div>
+
+                <!-- Form -->
+                <form method="post" action="{% url 'set_language' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{% url 'portal:select_crops' %}">
+
+                    <div class="language-grid">
+                        <button type="submit" name="language" value="en" class="lang-card">
+                            <div class="lang-icon">EN</div>
+                            <div class="lang-name">English</div>
+                        </button>
+
+                        <button type="submit" name="language" value="hi" class="lang-card">
+                            <div class="lang-icon">HI</div>
+                            <div class="lang-name">हिन्दी</div>
+                        </button>
+
+                        <button type="submit" name="language" value="mr" class="lang-card">
+                            <div class="lang-icon">MR</div>
+                            <div class="lang-name">मराठी</div>
+                        </button>
+
+                        <button type="submit" name="language" value="gu" class="lang-card">
+                            <div class="lang-icon">GU</div>
+                            <div class="lang-name">ગુજરાતી</div>
+                        </button>
+
+                        <button type="submit" name="language" value="pa" class="lang-card">
+                            <div class="lang-icon">PA</div>
+                            <div class="lang-name">ਪੰਜਾਬੀ</div>
+                        </button>
+
+                        <button type="submit" name="language" value="ta" class="lang-card">
+                            <div class="lang-icon">TA</div>
+                            <div class="lang-name">தமிழ்</div>
+                        </button>
+
+                        <button type="submit" name="language" value="te" class="lang-card">
+                            <div class="lang-icon">TE</div>
+                            <div class="lang-name">తెలుగు</div>
+                        </button>
+
+                        <button type="submit" name="language" value="kn" class="lang-card">
+                            <div class="lang-icon">KN</div>
+                            <div class="lang-name">ಕನ್ನಡ</div>
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.namaste-title {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #2e7d32;
+}
+
+.language-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+}
+
+.lang-card {
+    background: white;
+    border: 2px solid transparent;
+    border-radius: 18px;
+    padding: 25px 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+    cursor: pointer;
+}
+
+.lang-card:hover {
+    border-color: #2e7d32;
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(46,125,50,0.18);
+    background-color: #f1f8e9;
+}
+
+.lang-icon {
+    font-weight: bold;
+    color: #2e7d32;
+    background: #e8f5e9;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    border-radius: 50%;
+    margin: 0 auto 12px;
+}
+
+.lang-name {
+    font-weight: 600;
+    color: #333;
+}
+</style>
+{% endblock %}

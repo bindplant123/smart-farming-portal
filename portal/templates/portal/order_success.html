@@ -1,0 +1,65 @@
+{% extends "portal/base.html" %}
+{% load i18n %}
+
+{% block title %}Order Placed Successfully{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+    <div class="text-center">
+        <!-- Success Icon -->
+        <div style="font-size: 6rem;">✅</div>
+        
+        <!-- Title -->
+        <h2 class="text-success mt-3">Order Placed Successfully!</h2>
+        <p class="text-muted">Thank you for shopping with Smart Farming Portal.</p>
+        
+        <!-- Order Details Card -->
+        <div class="card mt-4" style="max-width: 500px; margin: 0 auto;">
+            <div class="card-body">
+                <h5 class="card-title">📦 Order Summary</h5>
+                <hr>
+                
+                <div class="text-start">
+                    <p><strong>Order ID:</strong> #{{ order.id }}</p>
+                    <p><strong>Date:</strong> {{ order.created_at|date:"F d, Y H:i" }}</p>
+                    <p><strong>Status:</strong> 
+                        <span class="badge bg-{% if order.status == 'pending' %}warning{% elif order.status == 'processing' %}info{% elif order.status == 'shipped' %}primary{% elif order.status == 'delivered' %}success{% else %}danger{% endif %}">
+                            {{ order.status|title }}
+                        </span>
+                    </p>
+                </div>
+                
+                <hr>
+                
+                {% for item in items %}
+                <div class="d-flex justify-content-between mb-2">
+                    <span>
+                        {{ item.product.name }} 
+                        <span class="badge bg-secondary">x{{ item.quantity }}</span>
+                    </span>
+                    <span>₹{{ item.subtotal }}</span>
+                </div>
+                {% endfor %}
+                
+                <hr>
+                <div class="d-flex justify-content-between">
+                    <strong>Total Paid</strong>
+                    <strong class="text-success fs-5">₹{{ total }}</strong>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Buttons -->
+        <div class="mt-4">
+            <a href="{% url 'portal:market' %}" class="btn btn-outline-success">
+                Continue Shopping
+            </a>
+            <a href="{% url 'portal:home' %}" class="btn btn-success">
+                Go to Dashboard
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

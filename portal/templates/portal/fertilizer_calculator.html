@@ -1,0 +1,121 @@
+{% extends 'portal/base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Fertilizer Calculator" %} - {% trans "Smart Farming" %}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center mb-4">🧪 {% trans "Fertilizer Calculator" %}</h1>
+    
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <form method="POST" class="row g-3">
+                {% csrf_token %}
+                
+                <div class="col-md-6">
+                    <label class="form-label">🌱 {% trans "Select Crop" %}</label>
+                    <select name="crop" class="form-select" required>
+                        <option value="">-- {% trans "Select a Crop" %} --</option>
+                        {% for crop in crops %}
+                        <option value="{{ crop.id }}">{{ crop.emoji }} {{ crop.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="col-md-4">
+                    <label class="form-label">📐 {% trans "Land Size" %}</label>
+                    <input type="number" name="land_size" class="form-control" value="1" min="0.1" step="0.1" required>
+                </div>
+                
+                <div class="col-md-2">
+                    <label class="form-label">{% trans "Unit" %}</label>
+                    <select name="land_unit" class="form-select">
+                        <option value="acre">{% trans "Acre" %}</option>
+                        <option value="bigha">{% trans "Bigha" %}</option>
+                    </select>
+                </div>
+                
+                <div class="col-12">
+                    <button type="submit" class="btn btn-success">{% trans "Calculate Fertilizer" %}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    {% if selected_crop %}
+    <div class="card shadow-sm">
+        <div class="card-header bg-success text-white">
+            <h4 class="mb-0">📊 {% trans "Fertilizer Recommendations for" %} {{ selected_crop.emoji }} {{ selected_crop.name }}</h4>
+        </div>
+        <div class="card-body">
+            <div class="row text-center mb-4">
+                <div class="col-md-4">
+                    <div class="p-3 bg-light rounded">
+                        <h5 class="text-primary">{% trans "Nitrogen (N)" %}</h5>
+                        <h3>{{ nitrogen }} kg</h3>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 bg-light rounded">
+                        <h5 class="text-warning">{% trans "Phosphorus (P)" %}</h5>
+                        <h3>{{ phosphorus }} kg</h3>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 bg-light rounded">
+                        <h5 class="text-success">{% trans "Potassium (K)" %}</h5>
+                        <h3>{{ potassium }} kg</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <h5 class="mb-3">📦 {% trans "Recommended Fertilizers" %}:</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="table-success">
+                        <tr>
+                            <th>{% trans "Fertilizer" %}</th>
+                            <th>{% trans "Quantity" %}</th>
+                            <th>{% trans "Purpose" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🌾 {% trans "Urea (46% N)" %}</td>
+                            <td><strong>{{ urea }} kg</strong></td>
+                            <td>{% trans "Nitrogen supply" %}</td>
+                        </tr>
+                        <tr>
+                            <td>💧 {% trans "DAP (18% N, 46% P)" %}</td>
+                            <td><strong>{{ dap }} kg</strong></td>
+                            <td>{% trans "Phosphorus supply" %}</td>
+                        </tr>
+                        <tr>
+                            <td>🧂 {% trans "MOP (60% K)" %}</td>
+                            <td><strong>{{ mop }} kg</strong></td>
+                            <td>{% trans "Potassium supply" %}</td>
+                        </tr>
+                        <tr class="table-success">
+                            <td><strong>{% trans "Total" %}</strong></td>
+                            <td><strong>{{ total_fertilizer }} kg</strong></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="alert alert-info mt-3">
+                <strong>💡 {% trans "Note" %}:</strong> {% trans "This is a general recommendation. Please get your soil tested for accurate fertilizer requirements." %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+    <div class="text-center mt-4">
+        <a href="{% url 'portal:home' %}" class="btn btn-secondary">⬅️ {% trans "Back to Home" %}</a>
+    </div>
+</div>
+
+<style>
+    .container { max-width: 800px; }
+</style>
+{% endblock %}

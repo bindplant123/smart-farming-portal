@@ -1,0 +1,224 @@
+{% extends 'portal/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Smart Farm Market" %}{% endblock %}
+
+{% block content %}
+
+<style>
+.container{
+    max-width:1400px;
+    margin:auto;
+    padding:2rem;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:scale(1.03);
+}
+
+.image{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.card-body{
+    padding:1rem;
+}
+
+.name{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.price{
+    color:green;
+    font-size:20px;
+    margin:10px 0;
+}
+
+.btn{
+    padding:8px 12px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    color:white;
+    text-decoration:none;
+    display:inline-block;
+}
+
+.btn-cart{
+    background:green;
+}
+
+.btn-view{
+    background:blue;
+}
+
+.cat-btn{
+    margin:5px;
+    padding:8px 15px;
+    cursor:pointer;
+    border:1px solid #ccc;
+    border-radius:8px;
+    background:#f5f5f5;
+}
+
+.cat-btn.active{
+    background:green;
+    color:white;
+    border-color:green;
+}
+
+.no-image-placeholder {
+    width:100%;
+    height:200px;
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:48px;
+}
+</style>
+
+<div class="container">
+
+<h1 style="text-align:center;">🛒 {% trans "Smart Farm Market" %}</h1>
+
+<!-- SEARCH -->
+<input
+type="text"
+id="searchInput"
+placeholder="{% trans 'Search product...' %}"
+onkeyup="searchProducts()"
+style="width:100%;padding:10px;margin:20px 0;border:1px solid #ccc;border-radius:8px;font-size:16px;"
+>
+
+<!-- CATEGORY FILTER -->
+<div style="text-align:center;margin-bottom:20px;">
+<button class="cat-btn active" onclick="filterCategory(event,'all')">{% trans "All" %}</button>
+<button class="cat-btn" onclick="filterCategory(event,'fertilizer')">{% trans "Fertilizer" %}</button>
+<button class="cat-btn" onclick="filterCategory(event,'pesticide')">{% trans "Pesticide" %}</button>
+<button class="cat-btn" onclick="filterCategory(event,'seeds')">{% trans "Seeds" %}</button>
+<button class="cat-btn" onclick="filterCategory(event,'tools')">{% trans "Tools" %}</button>
+<button class="cat-btn" onclick="filterCategory(event,'organic')">{% trans "Organic" %}</button>
+</div>
+
+<!-- PRODUCTS -->
+<div class="grid" id="productGrid">
+
+{% for product in products %}
+<div class="card"
+data-category="{{ product.category }}"
+data-name="{{ product.name }}">
+
+<!-- PRODUCT IMAGE - FIXED -->
+<a href="{% url 'portal:product_detail' product.id %}">
+{% if product.image_animated and product.image_animated.name %}
+    <img src="{{ product.image_animated.url }}" class="image" alt="{{ product.name }}" onerror="this.parentElement.innerHTML='<div class=\'no-image-placeholder\'>🌿</div>'">
+{% elif product.image_main and product.image_main.name %}
+    <img src="{{ product.image_main.url }}" class="image" alt="{{ product.name }}" onerror="this.parentElement.innerHTML='<div class=\'no-image-placeholder\'>🌿</div>'">
+{% else %}
+    <div class="no-image-placeholder">🌿</div>
+{% endif %}
+</a>
+
+<div class="card-body">
+
+<div class="name">
+    {{ product.name }}
+</div>
+
+<!-- DESCRIPTION -->
+<div style="color:#555;font-size:14px;margin:6px 0;">
+    {{ product.description|truncatewords:12|safe }}
+</div>
+
+<div class="price">
+    ₹{{ product.price }}
+</div>
+
+<div>
+{% if product.in_stock %}
+    ✅ {% trans "Stock" %}: {{ product.stock_quantity }}
+{% else %}
+    ❌ {% trans "Out of Stock" %}
+{% endif %}
+</div>
+
+<br>
+
+<a href="{% url 'portal:add_to_cart' product.id %}" class="btn btn-cart">
+    🛒 {% trans "Add to Cart" %}
+</a>
+
+<a href="{% url 'portal:product_detail' product.id %}" class="btn btn-view">
+    👁 {% trans "View" %}
+</a>
+
+</div>
+</div>
+
+{% empty %}
+<div style="text-align:center;padding:40px;grid-column:1/-1;">
+    <h3>{% trans "No products available" %}</h3>
+</div>
+{% endfor %}
+
+</div>
+
+</div>
+
+<script>
+
+function searchProducts(){
+    let input = document.getElementById("searchInput").value.toLowerCase()
+    let cards = document.querySelectorAll(".card")
+
+    cards.forEach(card=>{
+        let name = card.dataset.name.toLowerCase()
+
+        if(name.includes(input)){
+            card.style.display = "block"
+        } else {
+            card.style.display = "none"
+        }
+    })
+}
+
+function filterCategory(event, category){
+    let cards = document.querySelectorAll(".card")
+    let buttons = document.querySelectorAll(".cat-btn")
+
+    buttons.forEach(btn=>btn.classList.remove("active"))
+    event.target.classList.add("active")
+
+    cards.forEach(card=>{
+        let cat = card.dataset.category
+
+        if(category==="all" || cat===category){
+            card.style.display="block"
+        } else {
+            card.style.display="none"
+        }
+    })
+}
+
+</script>
+
+{% endblock %}

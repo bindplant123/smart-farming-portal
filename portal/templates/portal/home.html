@@ -1,0 +1,172 @@
+{% load i18n %}
+
+<h1>{% trans "Hello Farmer" %}</h1>
+{% extends "portal/base.html" %}
+
+{% block title %}{% trans "Login" %}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center align-items-center" style="min-height: 85vh;">
+        <div class="col-lg-5 col-md-7">
+
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+
+                <!-- ================= HEADER ================= -->
+                <div class="card-body p-5">
+
+                    <div class="text-center mb-4">
+                        <div class="display-4 mb-2">🌾</div>
+                        <h3 class="fw-bold text-success">
+                            {% trans "Smart Farming Portal" %}
+                        </h3>
+                        <p class="text-muted mb-0">
+                            {% trans "Sign in to manage your crops and agricultural activities" %}
+                        </p>
+                    </div>
+
+                    <!-- ================= LOGIN FORM ================= -->
+                    <form method="post" novalidate>
+                        {% csrf_token %}
+
+                        {% if form.non_field_errors %}
+                            <div class="alert alert-danger rounded-3">
+                                {{ form.non_field_errors }}
+                            </div>
+                        {% endif %}
+
+                        <!-- Email / Phone -->
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">
+                                {% trans "Email or Phone Number" %}
+                            </label>
+                            {{ form.identifier }}
+                            {% if form.identifier.errors %}
+                                <div class="text-danger small mt-1">
+                                    {{ form.identifier.errors }}
+                                </div>
+                            {% endif %}
+                            <small class="text-muted">
+                                {% trans "Phone number must contain exactly 10 digits." %}
+                            </small>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">
+                                {% trans "Password" %}
+                            </label>
+                            {{ form.password }}
+                            {% if form.password.errors %}
+                                <div class="text-danger small mt-1">
+                                    {{ form.password.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Crop Selection -->
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">
+                                {% trans "Select Your Crop" %}
+                            </label>
+                            {{ form.crop }}
+                            {% if form.crop.errors %}
+                                <div class="text-danger small mt-1">
+                                    {{ form.crop.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Submit -->
+                        <div class="d-grid mb-3">
+                            <button type="submit" class="btn btn-success py-2 fw-bold rounded-3">
+                                {% trans "Login" %}
+                            </button>
+                        </div>
+                    </form>
+
+                    <hr class="my-4">
+
+                    <!-- ================= IMAGE UPLOAD SECTION ================= -->
+                    <h5 class="text-center text-success fw-bold mb-3">
+                        🌿 {% trans "Upload Crop Image for Detection" %}
+                    </h5>
+
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <!-- Gallery Upload -->
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">
+                                {% trans "Select from Gallery" %}
+                            </label>
+                            <input type="file"
+                                   name="image"
+                                   accept="image/*"
+                                   class="form-control rounded-3">
+                        </div>
+
+                        <!-- Camera Capture -->
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">
+                                {% trans "Take a Picture" %}
+                            </label>
+                            <input type="file"
+                                   name="camera_image"
+                                   accept="image/*"
+                                   capture="environment"
+                                   class="form-control rounded-3">
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit"
+                                    class="btn btn-outline-success fw-bold rounded-3">
+                                {% trans "Upload Image" %}
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+
+                <!-- ================= FOOTER ================= -->
+                <div class="card-footer text-center bg-light py-3">
+                    <small class="text-muted">
+                        {% trans "Secure Agricultural Gateway • Powered by Smart Farming Technology" %}
+                    </small>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- ================= CUSTOM STYLING ================= -->
+<style>
+
+    input, select {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 10px;
+        border: 1px solid #ced4da;
+        transition: 0.3s ease;
+    }
+
+    input:focus, select:focus {
+        border-color: #198754;
+        box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.25);
+        outline: none;
+    }
+
+    .card {
+        transition: 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-3px);
+    }
+
+</style>
+
+{% endblock %}

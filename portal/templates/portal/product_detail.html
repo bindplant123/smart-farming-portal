@@ -1,0 +1,70 @@
+{% extends 'portal/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+
+<div style="max-width:900px; margin:auto; padding:20px;">
+
+    <a href="{% url 'portal:market' %}" style="color:green; text-decoration:none;">← {% trans "Back to Market" %}</a>
+    <br><br>
+
+    <div style="display:flex; gap:30px; flex-wrap:wrap;">
+
+        <!-- IMAGE - FIXED -->
+        <div style="flex:1; min-width:300px;">
+            {% if product.image_animated and product.image_animated.name %}
+                <img src="{{ product.image_animated.url }}"
+                     alt="{{ product.name }}"
+                     style="width:100%; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.15);"
+                     onerror="this.outerHTML='<div style=\'width:100%;height:300px;background:linear-gradient(135deg,#e8f5e9,#c8e6c9);display:flex;align-items:center;justify-content:center;font-size:80px;border-radius:12px;\'>🌿</div>'">
+            {% elif product.image_main and product.image_main.name %}
+                <img src="{{ product.image_main.url }}"
+                     alt="{{ product.name }}"
+                     style="width:100%; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.15);"
+                     onerror="this.outerHTML='<div style=\'width:100%;height:300px;background:linear-gradient(135deg,#e8f5e9,#c8e6c9);display:flex;align-items:center;justify-content:center;font-size:80px;border-radius:12px;\'>🌿</div>'">
+            {% else %}
+                <div style="width:100%;height:300px;background:linear-gradient(135deg,#e8f5e9,#c8e6c9);display:flex;align-items:center;justify-content:center;font-size:80px;border-radius:12px;">
+                    🌿
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- DETAILS -->
+        <div style="flex:1; min-width:280px;">
+            <h2 style="margin-top:0;">{{ product.name }}</h2>
+
+            <h3 style="color:green; font-size:28px;">₹{{ product.price }}</h3>
+
+            <p><b>{% trans "Category" %}:</b> {{ product.get_category_display }}</p>
+            <p><b>{% trans "Brand" %}:</b> {{ product.brand|default:"-" }}</p>
+
+            {% if product.in_stock %}
+                <p style="color:green; font-weight:bold;">✅ {% trans "In Stock" %} ({{ product.stock_quantity }})</p>
+            {% else %}
+                <p style="color:red; font-weight:bold;">❌ {% trans "Out of Stock" %}</p>
+            {% endif %}
+
+            <br>
+
+            {% if product.in_stock %}
+            <a href="{% url 'portal:add_to_cart' product.id %}"
+               style="display:inline-block; padding:12px 24px; background:green; color:white; border-radius:8px; text-decoration:none; font-size:16px;">
+               🛒 {% trans "Add to Cart" %}
+            </a>
+            {% endif %}
+
+        </div>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div style="margin-top:30px; background:white; padding:20px; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.08);">
+        <h4>{% trans "Description" %}:</h4>
+        <div>{{ product.description|safe }}</div>
+    </div>
+
+</div>
+
+{% endblock %}

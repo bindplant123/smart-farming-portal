@@ -1,0 +1,173 @@
+{% load i18n %}
+{% load static %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+            {% trans "Smart Farming Portal" %}
+        {% endblock %}
+    </title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'portal/css/style.css' %}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body class="bg-light">
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container-fluid px-4">
+
+        <a class="navbar-brand text-success fw-bold" href="{% url 'portal:home' %}">
+            🌾 {% trans "Smart Farming Portal" %}
+        </a>
+
+        <div class="d-flex align-items-center gap-3">
+
+            <!-- 🌍 Language Switcher -->
+            <form action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ request.path }}">
+                <select name="language" onchange="this.form.submit()" 
+                        class="form-select form-select-sm">
+                    {% for lang in LANGUAGES %}
+                        <option value="{{ lang.0 }}" 
+                            {% if lang.0 == LANGUAGE_CODE %}selected{% endif %}>
+                            {{ lang.1 }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </form>
+
+            {% if user.is_authenticated %}
+                <div class="dropdown">
+                    <a href="#" class="text-dark d-flex align-items-center gap-2 dropdown-toggle"
+                       data-bs-toggle="dropdown" style="text-decoration: none;">
+                        <i class="bi bi-person-circle fs-4"></i>
+                        <span class="d-none d-md-inline text-secondary">
+                            {{ user.username }}
+                        </span>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-4">
+                        <li>
+                            <a class="dropdown-item" href="{% url 'portal:profile' %}">
+                                <i class="bi bi-person me-2"></i> {% trans "Profile" %}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'portal:settings' %}">
+                                <i class="bi bi-gear me-2"></i> {% trans "Settings" %}
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item text-danger" href="{% url 'portal:logout' %}">
+                                <i class="bi bi-box-arrow-right me-2"></i> {% trans "Logout" %}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            {% else %}
+                <a href="{% url 'portal:login' %}" class="btn btn-success btn-sm">
+                    {% trans "Login" %}
+                </a>
+                <a href="{% url 'portal:signup' %}" class="btn btn-outline-success btn-sm">
+                    {% trans "Sign Up" %}
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
+<!-- ================= MAIN LAYOUT ================= -->
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- Sidebar -->
+        {% if user.is_authenticated %}
+        <aside class="col-lg-2 d-none d-lg-block bg-white border-end pt-4">
+            <ul class="nav flex-column px-3">
+
+                <li class="nav-item mb-2">
+                    <a href="{% url 'portal:home' %}" class="nav-link">
+                        <i class="bi bi-house me-2"></i> {% trans "Dashboard" %}
+                    </a>
+                </li>
+
+                <li class="nav-item mb-2">
+                    <a href="{% url 'portal:community' %}" class="nav-link">
+                        <i class="bi bi-chat-square-text me-2"></i> {% trans "Community" %}
+                    </a>
+                </li>
+
+                <li class="nav-item mb-2">
+                    <a href="{% url 'portal:crop_calendar' %}" class="nav-link">
+                        <i class="bi bi-calendar-event me-2"></i> {% trans "Crop Calendar" %}
+                    </a>
+                </li>
+
+                <li class="nav-item mb-2">
+                    <a href="{% url 'portal:performance' %}" class="nav-link">
+                        <i class="bi bi-graph-up me-2"></i> {% trans "Performance" %}
+                    </a>
+                </li>
+
+                <li class="nav-item mb-2">
+                    <a href="{% url 'portal:weather' %}" class="nav-link">
+                        <i class="bi bi-cloud-sun me-2"></i> {% trans "Weather" %}
+                    </a>
+                </li>
+
+                <li class="nav-item mb-2">
+                    <a href="{% url 'portal:fertilizer_calculator' %}" class="nav-link">
+                        <i class="bi bi-calculator me-2"></i> {% trans "Fertilizer" %}
+                    </a>
+                </li>
+
+                <li class="nav-item mb-2">
+                    <a href="{% url 'portal:pesticide_home' %}" class="nav-link">
+                        <i class="bi bi-bug me-2"></i> {% trans "Pesticides" %}
+                    </a>
+                </li>
+
+            </ul>
+        </aside>
+        {% endif %}
+
+        <!-- Main Content -->
+        <main class="{% if user.is_authenticated %}col-lg-10{% else %}col-12{% endif %} py-4 px-4">
+            {% block content %}{% endblock %}
+        </main>
+
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="text-center py-3 border-top bg-white mt-4">
+    <small class="text-secondary">
+        © {% now "Y" %} {% trans "Smart Farming Portal" %}
+    </small>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+{% block extra_js %}{% endblock %}
+
+</body>
+</html>

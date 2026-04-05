@@ -1,0 +1,174 @@
+# Bengali translations for Smart Farming Portal
+msgid ""
+msgstr ""
+"Project-Id-Version: SmartFarmingPortal\n"
+"Language: bn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Smart Farming Portal"
+msgstr "স্মার্ট কৃষি পোর্টাল"
+
+msgid "Profile"
+msgstr "প্রোফাইল"
+
+msgid "Settings"
+msgstr "সেটিংস"
+
+msgid "Logout"
+msgstr "লগআউট"
+
+msgid "Login"
+msgstr "লগইন"
+
+msgid "Sign Up"
+msgstr "সাইন আপ"
+
+msgid "Dashboard"
+msgstr "ড্যাশবোর্ড"
+
+msgid "Community"
+msgstr "সম্প্রদায়"
+
+msgid "Market"
+msgstr "বাজার"
+
+msgid "Crop Calendar"
+msgstr "ফসল ক্যালেন্ডার"
+
+msgid "Performance"
+msgstr "কর্মক্ষমতা"
+
+msgid "Weather"
+msgstr "আবহাওয়া"
+
+msgid "Fertilizer"
+msgstr "সার"
+
+msgid "Pesticides"
+msgstr "কীটনাশক"
+
+msgid "Home"
+msgstr "হোম"
+
+msgid "You"
+msgstr "আপনি"
+
+msgid "Smart Farm Market"
+msgstr "স্মার্ট ফার্ম বাজার"
+
+msgid "Search product..."
+msgstr "পণ্য খুঁজুন..."
+
+msgid "All"
+msgstr "সব"
+
+msgid "Seeds"
+msgstr "বীজ"
+
+msgid "Tools"
+msgstr "সরঞ্জাম"
+
+msgid "Organic"
+msgstr "জৈব"
+
+msgid "Stock"
+msgstr "স্টক"
+
+msgid "Out of Stock"
+msgstr "স্টক নেই"
+
+msgid "Add to Cart"
+msgstr "কার্টে যোগ করুন"
+
+msgid "View"
+msgstr "দেখুন"
+
+msgid "No products available"
+msgstr "কোনো পণ্য পাওয়া যায়নি"
+
+msgid "Back to Market"
+msgstr "বাজারে ফিরুন"
+
+msgid "Category"
+msgstr "বিভাগ"
+
+msgid "Brand"
+msgstr "ব্র্যান্ড"
+
+msgid "In Stock"
+msgstr "স্টকে আছে"
+
+msgid "Description"
+msgstr "বিবরণ"
+
+msgid "Language"
+msgstr "ভাষা"
+
+msgid "Update Language"
+msgstr "ভাষা আপডেট করুন"
+
+msgid "Account Settings"
+msgstr "অ্যাকাউন্ট সেটিংস"
+
+msgid "Selected Crops"
+msgstr "নির্বাচিত ফসল"
+
+msgid "Update your crop preferences to get personalized recommendations."
+msgstr "ব্যক্তিগতকৃত পরামর্শের জন্য আপনার ফসলের পছন্দ আপডেট করুন।"
+
+msgid "Change Crops"
+msgstr "ফসল পরিবর্তন করুন"
+
+msgid "Sign out of your account."
+msgstr "আপনার অ্যাকাউন্ট থেকে সাইন আউট করুন।"
+
+msgid "Back to Home"
+msgstr "হোমে ফিরুন"
+
+msgid "Hello Farmer"
+msgstr "নমস্কার কৃষক"
+
+msgid "Sign in to manage your crops and agricultural activities"
+msgstr "আপনার ফসল ও কৃষি কার্যক্রম পরিচালনার জন্য সাইন ইন করুন"
+
+msgid "Email or Phone Number"
+msgstr "ইমেইল বা ফোন নম্বর"
+
+msgid "Phone number must contain exactly 10 digits."
+msgstr "ফোন নম্বরে ঠিক ১০টি সংখ্যা থাকতে হবে।"
+
+msgid "Password"
+msgstr "পাসওয়ার্ড"
+
+msgid "Select Your Crop"
+msgstr "আপনার ফসল নির্বাচন করুন"
+
+msgid "Select Language"
+msgstr "ভাষা নির্বাচন করুন"
+
+msgid "Choose Your Language"
+msgstr "আপনার ভাষা নির্বাচন করুন"
+
+msgid "Create Your Account"
+msgstr "আপনার অ্যাকাউন্ট তৈরি করুন"
+
+msgid "Market & Fertilizers"
+msgstr "বাজার ও সার"
+
+msgid "Fertilizer Recommendations"
+msgstr "সার সুপারিশ"
+
+msgid "Suggested Fertilizer"
+msgstr "প্রস্তাবিত সার"
+
+msgid "Standard Quantity"
+msgstr "মানক পরিমাণ"
+
+msgid "Current Market Rate"
+msgstr "বর্তমান বাজার দর"
+
+msgid "Locate Nearest Seller"
+msgstr "নিকটতম বিক্রেতা খুঁজুন"

@@ -1,0 +1,189 @@
+# Telugu translations for Smart Farming Portal
+msgid ""
+msgstr ""
+"Project-Id-Version: SmartFarmingPortal\n"
+"Language: te\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Smart Farming Portal"
+msgstr "స్మార్ట్ వ్యవసాయ పోర్టల్"
+
+msgid "Profile"
+msgstr "ప్రొఫైల్"
+
+msgid "Settings"
+msgstr "సెట్టింగ్‌లు"
+
+msgid "Logout"
+msgstr "లాగ్అవుట్"
+
+msgid "Login"
+msgstr "లాగిన్"
+
+msgid "Sign Up"
+msgstr "సైన్ అప్"
+
+msgid "Dashboard"
+msgstr "డాష్‌బోర్డ్"
+
+msgid "Community"
+msgstr "సమాజం"
+
+msgid "Market"
+msgstr "మార్కెట్"
+
+msgid "Crop Calendar"
+msgstr "పంట క్యాలెండర్"
+
+msgid "Performance"
+msgstr "పనితీరు"
+
+msgid "Weather"
+msgstr "వాతావరణం"
+
+msgid "Fertilizer"
+msgstr "ఎరువు"
+
+msgid "Pesticides"
+msgstr "పురుగుమందు"
+
+msgid "Home"
+msgstr "హోమ్"
+
+msgid "You"
+msgstr "మీరు"
+
+msgid "Smart Farm Market"
+msgstr "స్మార్ట్ ఫార్మ్ మార్కెట్"
+
+msgid "Search product..."
+msgstr "ఉత్పత్తి వెతకండి..."
+
+msgid "All"
+msgstr "అన్నీ"
+
+msgid "Seeds"
+msgstr "విత్తనాలు"
+
+msgid "Tools"
+msgstr "పనిముట్లు"
+
+msgid "Organic"
+msgstr "జైవిక"
+
+msgid "Stock"
+msgstr "స్టాక్"
+
+msgid "Out of Stock"
+msgstr "స్టాక్ లేదు"
+
+msgid "Add to Cart"
+msgstr "కార్ట్‌కు జోడించు"
+
+msgid "View"
+msgstr "చూడండి"
+
+msgid "No products available"
+msgstr "ఉత్పత్తులు అందుబాటులో లేవు"
+
+msgid "Back to Market"
+msgstr "మార్కెట్‌కు తిరిగి"
+
+msgid "Category"
+msgstr "వర్గం"
+
+msgid "Brand"
+msgstr "బ్రాండ్"
+
+msgid "In Stock"
+msgstr "స్టాక్‌లో ఉంది"
+
+msgid "Description"
+msgstr "వివరణ"
+
+msgid "Language"
+msgstr "భాష"
+
+msgid "Update Language"
+msgstr "భాషను నవీకరించు"
+
+msgid "Account Settings"
+msgstr "ఖాతా సెట్టింగ్‌లు"
+
+msgid "Selected Crops"
+msgstr "ఎంచుకున్న పంటలు"
+
+msgid "Update your crop preferences to get personalized recommendations."
+msgstr "వ్యక్తిగత సిఫారసుల కోసం మీ పంట ప్రాధాన్యతలను నవీకరించండి."
+
+msgid "Change Crops"
+msgstr "పంటలు మార్చు"
+
+msgid "Sign out of your account."
+msgstr "మీ ఖాతా నుండి సైన్ అవుట్ అవ్వండి."
+
+msgid "Back to Home"
+msgstr "హోమ్‌కు తిరిగి"
+
+msgid "Hello Farmer"
+msgstr "నమస్కారం రైతు"
+
+msgid "Sign in to manage your crops and agricultural activities"
+msgstr "మీ పంటలు మరియు వ్యవసాయ కార్యకలాపాలను నిర్వహించడానికి సైన్ ఇన్ చేయండి"
+
+msgid "Email or Phone Number"
+msgstr "ఇమెయిల్ లేదా ఫోన్ నంబర్"
+
+msgid "Phone number must contain exactly 10 digits."
+msgstr "ఫోన్ నంబర్ సరిగ్గా 10 అంకెలు ఉండాలి."
+
+msgid "Password"
+msgstr "పాస్‌వర్డ్"
+
+msgid "Select Your Crop"
+msgstr "మీ పంటను ఎంచుకోండి"
+
+msgid "Upload Crop Image for Detection"
+msgstr "గుర్తింపు కోసం పంట చిత్రాన్ని అప్‌లోడ్ చేయండి"
+
+msgid "Select from Gallery"
+msgstr "గ్యాలరీ నుండి ఎంచుకోండి"
+
+msgid "Take a Picture"
+msgstr "ఫోటో తీయండి"
+
+msgid "Upload Image"
+msgstr "చిత్రాన్ని అప్‌లోడ్ చేయండి"
+
+msgid "Select Language"
+msgstr "భాషను ఎంచుకోండి"
+
+msgid "Choose Your Language"
+msgstr "మీ భాషను ఎంచుకోండి"
+
+msgid "Create Your Account"
+msgstr "మీ ఖాతాను సృష్టించండి"
+
+msgid "Market & Fertilizers"
+msgstr "మార్కెట్ మరియు ఎరువులు"
+
+msgid "Fertilizer Recommendations"
+msgstr "ఎరువు సిఫారసులు"
+
+msgid "Optimized for your selected crop:"
+msgstr "మీరు ఎంచుకున్న పంట కోసం అనుకూలీకరించబడింది:"
+
+msgid "Suggested Fertilizer"
+msgstr "సూచించిన ఎరువు"
+
+msgid "Standard Quantity"
+msgstr "ప్రామాణిక పరిమాణం"
+
+msgid "Current Market Rate"
+msgstr "ప్రస్తుత మార్కెట్ రేటు"
+
+msgid "Locate Nearest Seller"
+msgstr "సమీప విక్రేతను కనుగొనండి"

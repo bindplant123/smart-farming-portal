@@ -1,0 +1,311 @@
+# Marathi translations for Smart Farming Portal
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-28 13:59+0530\n"
+"Language: mr\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#: .\portal\templates\portal\base.html:11
+#: .\portal\templates\portal\base.html:29
+#: .\portal\templates\portal\base.html:196
+#: .\portal\templates\portal\home.html:19
+msgid "Smart Farming Portal"
+msgstr "स्मार्ट शेती पोर्टल"
+
+#: .\portal\templates\portal\base.html:58
+msgid "Profile"
+msgstr "प्रोफाइल"
+
+#: .\portal\templates\portal\base.html:63
+msgid "Settings"
+msgstr "सेटिंग्स"
+
+#: .\portal\templates\portal\base.html:69
+msgid "Logout"
+msgstr "लॉगआउट"
+
+#: .\portal\templates\portal\base.html:76 .\portal\templates\portal\home.html:4
+#: .\portal\templates\portal\home.html:81
+msgid "Login"
+msgstr "लॉगिन"
+
+#: .\portal\templates\portal\base.html:79
+#: .\portal\templates\portal\signup.html:4
+msgid "Sign Up"
+msgstr "साइन अप"
+
+#: .\portal\templates\portal\base.html:97
+msgid "Dashboard"
+msgstr "डॅशबोर्ड"
+
+#: .\portal\templates\portal\base.html:104
+#: .\portal\templates\portal\base.html:176
+msgid "Community"
+msgstr "समुदाय"
+
+#: .\portal\templates\portal\base.html:111
+msgid "Market"
+msgstr "बाजार"
+
+#: .\portal\templates\portal\base.html:120
+msgid "Crop Calendar"
+msgstr "पीक दिनदर्शिका"
+
+#: .\portal\templates\portal\base.html:127
+#: .\portal\templates\portal\base.html:182
+msgid "Performance"
+msgstr "कामगिरी"
+
+#: .\portal\templates\portal\base.html:134
+msgid "Weather"
+msgstr "हवामान"
+
+#: .\portal\templates\portal\base.html:141
+#, fuzzy
+#| msgid "Market & Fertilizers"
+msgid "Fertilizer"
+msgstr "बाजार व खते"
+
+#: .\portal\templates\portal\base.html:148
+msgid "Pesticides"
+msgstr "कीटकनाशके"
+
+#: .\portal\templates\portal\base.html:170
+msgid "Home"
+msgstr "मुखपृष्ठ"
+
+#: .\portal\templates\portal\base.html:188
+msgid "You"
+msgstr "तुम्ही"
+
+#: .\portal\templates\portal\fertilizer_recommendations.html:4
+msgid "Market & Fertilizers"
+msgstr "बाजार व खते"
+
+#: .\portal\templates\portal\fertilizer_recommendations.html:11
+msgid "Fertilizer Recommendations"
+msgstr "खत शिफारसी"
+
+#: .\portal\templates\portal\fertilizer_recommendations.html:13
+msgid "Optimized for your selected crop:"
+msgstr "आपल्या निवडलेल्या पिकासाठी अनुकूलित:"
+
+#: .\portal\templates\portal\fertilizer_recommendations.html:23
+msgid "Suggested Fertilizer"
+msgstr "सुचवलेले खत"
+
+#: .\portal\templates\portal\fertilizer_recommendations.html:27
+msgid "Standard Quantity"
+msgstr "प्रमाणित मात्रा"
+
+#: .\portal\templates\portal\fertilizer_recommendations.html:35
+msgid "Current Market Rate"
+msgstr "सध्याचा बाजारभाव"
+
+#: .\portal\templates\portal\fertilizer_recommendations.html:44
+msgid "Locate Nearest Seller"
+msgstr "जवळचा विक्रेता शोधा"
+
+#: .\portal\templates\portal\home.html:22
+#, fuzzy
+#| msgid "Sign in to manage your crops"
+msgid "Sign in to manage your crops and agricultural activities"
+msgstr "आपली पिके व्यवस्थापित करण्यासाठी साइन इन करा"
+
+#: .\portal\templates\portal\home.html:39
+msgid "Email or Phone Number"
+msgstr "ईमेल किंवा फोन नंबर"
+
+#: .\portal\templates\portal\home.html:48
+#, fuzzy
+#| msgid "Phone must be exactly 10 digits."
+msgid "Phone number must contain exactly 10 digits."
+msgstr "फोन नंबर अचूक १० अंकांचा असावा."
+
+#: .\portal\templates\portal\home.html:55
+msgid "Password"
+msgstr "पासवर्ड"
+
+#: .\portal\templates\portal\home.html:68
+msgid "Select Your Crop"
+msgstr "आपले पीक निवडा"
+
+#: .\portal\templates\portal\home.html:90
+msgid "Upload Crop Image for Detection"
+msgstr "ओळखीसाठी पिकाची प्रतिमा अपलोड करा"
+
+#: .\portal\templates\portal\home.html:99
+msgid "Select from Gallery"
+msgstr "गॅलरीतून निवडा"
+
+#: .\portal\templates\portal\home.html:110
+msgid "Take a Picture"
+msgstr "फोटो घ्या"
+
+#: .\portal\templates\portal\home.html:122
+msgid "Upload Image"
+msgstr "प्रतिमा अपलोड करा"
+
+#: .\portal\templates\portal\home.html:132
+msgid "Secure Agricultural Gateway • Powered by Smart Farming Technology"
+msgstr "सुरक्षित कृषी प्रवेशद्वार • स्मार्ट शेती तंत्रज्ञानाद्वारे संचालित"
+
+#: .\portal\templates\portal\select_language.html:4
+msgid "Select Language"
+msgstr "भाषा निवडा"
+
+#: .\portal\templates\portal\select_language.html:17
+msgid "Choose Your Language"
+msgstr "आपली भाषा निवडा"
+
+#: .\portal\templates\portal\signup.html:6
+msgid "Create Your Account"
+msgstr "आपले खाते तयार करा"
+
+#~ msgid "Secure Agricultural Gateway"
+#~ msgstr "सुरक्षित कृषी प्रवेशद्वार"
+
+#~ msgid "Select Crops"
+#~ msgstr "पिके निवडा"
+
+#~ msgid "Select crops"
+#~ msgstr "पिके निवडा"
+
+#~ msgid "Select up to 8 crops you are interested in"
+#~ msgstr "आपल्याला आवडणारी जास्तीत जास्त ८ पिके निवडा"
+
+#~ msgid "Selected"
+#~ msgstr "निवडलेले"
+
+#~ msgid "Search crop..."
+#~ msgstr "पीक शोधा..."
+
+#~ msgid "Next"
+#~ msgstr "पुढे"
+
+#~ msgid "You can select maximum 8 crops only 🌾"
+#~ msgstr "आपण जास्तीत जास्त ८ पिके निवडू शकता 🌾"
+
+#~ msgid "Live Farm Analysis"
+#~ msgstr "थेट शेती विश्लेषण"
+
+#~ msgid "Detecting your location for soil and weather data..."
+#~ msgstr "माती व हवामान माहिती साठी आपले स्थान शोधले जात आहे..."
+
+#~ msgid "Current Weather"
+#~ msgstr "सध्याचे हवामान"
+
+#~ msgid "Soil Condition"
+#~ msgstr "मातीची स्थिती"
+
+#~ msgid "Estimated Moisture"
+#~ msgstr "अंदाजित आर्द्रता"
+
+#~ msgid "Action"
+#~ msgstr "कार्यवाही"
+
+#~ msgid "Clear Skies - Perfect for Sowing"
+#~ msgstr "स्वच्छ आकाश - पेरणीसाठी योग्य"
+
+#~ msgid "Moderate Irrigation Needed"
+#~ msgstr "मध्यम सिंचन आवश्यक"
+
+#~ msgid "Location access denied. Please enable GPS."
+#~ msgstr "स्थान प्रवेश नाकारला गेला. कृपया GPS चालू करा."
+
+#~ msgid "English"
+#~ msgstr "इंग्रजी"
+
+#~ msgid "Hindi"
+#~ msgstr "हिंदी"
+
+#~ msgid "Punjabi"
+#~ msgstr "पंजाबी"
+
+#~ msgid "Tamil"
+#~ msgstr "तमिळ"
+
+#~ msgid "Telugu"
+#~ msgstr "तेलुगू"
+
+#~ msgid "Bengali"
+#~ msgstr "बंगाली"
+
+#~ msgid "Marathi"
+#~ msgstr "मराठी"
+
+#~ msgid "Gujarati"
+#~ msgstr "गुजराती"
+
+msgid "Smart Farm Market"
+msgstr "स्मार्ट फार्म बाजार"
+
+msgid "Search product..."
+msgstr "उत्पाद शोधा..."
+
+msgid "All"
+msgstr "सर्व"
+
+msgid "Seeds"
+msgstr "बियाणे"
+
+msgid "Tools"
+msgstr "साधने"
+
+msgid "Organic"
+msgstr "जैविक"
+
+msgid "Stock"
+msgstr "साठा"
+
+msgid "Out of Stock"
+msgstr "साठा नाही"
+
+msgid "Add to Cart"
+msgstr "कार्टमध्ये जोडा"
+
+msgid "View"
+msgstr "पहा"
+
+msgid "No products available"
+msgstr "कोणतेही उत्पाद उपलब्ध नाही"
+
+msgid "Back to Market"
+msgstr "बाजारात परत"
+
+msgid "Category"
+msgstr "श्रेणी"
+
+msgid "Brand"
+msgstr "ब्रँड"
+
+msgid "In Stock"
+msgstr "साठ्यात आहे"
+
+msgid "Description"
+msgstr "वर्णन"
+
+msgid "Language"
+msgstr "भाषा"
+
+msgid "Update Language"
+msgstr "भाषा अपडेट करा"
+
+msgid "Account Settings"
+msgstr "खाते सेटिंग्स"
+
+msgid "Selected Crops"
+msgstr "निवडलेली पिके"
+
+msgid "Update your crop preferences to get personalized recommendations."
+msgstr "वैयक्तिक शिफारसींसाठी आपल्या पीक प्राधान्यांना अपडेट करा."
+
+msgid "Change Crops"
+msgstr "पिके बदला"
+
+msgid "Sign out of your account."
+msgstr "आपल्या खात्यातून साइन आउट करा."
+
+msgid "Back to Home"
+msgstr "मुखपृष्ठावर परत"

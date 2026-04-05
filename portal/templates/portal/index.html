@@ -1,0 +1,285 @@
+{% extends "portal/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Dashboard" %}{% endblock %}
+
+{% block extra_css %}
+<style>
+    body {
+        background: #f5f7fa;
+    }
+
+    /* ================= HEADER ================= */
+    .header {
+        background: #ffffff;
+        padding: 20px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        border-radius: 20px;
+        margin-bottom: 25px;
+    }
+
+    .header h2 {
+        font-size: 22px;
+        font-weight: 600;
+        color: #2e7d32;
+    }
+
+    .assistant-btn {
+        background: linear-gradient(45deg, #4CAF50, #2e7d32);
+        color: white;
+        padding: 8px 20px;
+        border-radius: 30px;
+        font-weight: 500;
+        cursor: pointer;
+        font-size: 14px;
+        transition: 0.3s ease;
+        text-align: center;
+    }
+
+    .assistant-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 18px rgba(76,175,80,0.3);
+    }
+
+    /* ================= CROPS SECTION ================= */
+    .crops-section {
+        background: white;
+        border-radius: 20px;
+        padding: 25px;
+        margin-bottom: 25px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    }
+
+    .crops-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .crops-header h4 {
+        margin: 0;
+        color: #2e7d32;
+        font-size: 18px;
+    }
+
+    .add-crop-btn {
+        background: #4CAF50;
+        color: white;
+        padding: 8px 20px;
+        border-radius: 20px;
+        text-decoration: none;
+        font-size: 14px;
+        transition: 0.3s ease;
+    }
+
+    .add-crop-btn:hover {
+        background: #2e7d32;
+        color: white;
+    }
+
+    .crops-container {
+        display: flex;
+        gap: 15px;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+
+    .crop-item {
+        text-align: center;
+        min-width: 100px;
+        flex-shrink: 0;
+    }
+
+    .crop-circle {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 3px solid #4CAF50;
+        background: #e8f5e9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        transition: 0.3s ease;
+    }
+
+    .crop-circle:hover {
+        transform: scale(1.1);
+        box-shadow: 0 10px 25px rgba(76,175,80,0.3);
+    }
+
+    .crop-item p {
+        margin-top: 10px;
+        font-size: 13px;
+        font-weight: 500;
+        color: #333;
+    }
+
+    .no-crops {
+        text-align: center;
+        padding: 40px;
+        color: #666;
+    }
+
+    .no-crops a {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 12px 30px;
+        background: #4CAF50;
+        color: white;
+        border-radius: 25px;
+        text-decoration: none;
+    }
+
+    /* ================= DASHBOARD CARDS ================= */
+    .dashboard {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 25px;
+    }
+
+    .card-box {
+        flex: 1;
+        min-width: 280px;
+        background: white;
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+        transition: 0.3s ease;
+    }
+
+    .card-box:hover {
+        transform: translateY(-5px);
+    }
+
+    .card-box h4 {
+        margin-bottom: 15px;
+        font-size: 16px;
+        color: #2e7d32;
+    }
+
+    .warning {
+        border-left: 6px solid #ff5252;
+    }
+
+    /* ================= MAIN ACTION ================= */
+    .main-action {
+        background: linear-gradient(to bottom, #d7f3e8, #ffffff);
+        text-align: center;
+        padding: 50px 20px;
+        border-radius: 25px;
+    }
+
+    .main-action img {
+        width: 100px;
+        margin-bottom: 15px;
+    }
+
+    .main-action h3 {
+        font-size: 22px;
+        font-weight: 600;
+        color: #2e7d32;
+    }
+
+    .main-action p {
+        margin-top: 8px;
+        font-size: 14px;
+        color: #555;
+    }
+
+    .take-picture-btn {
+        margin-top: 25px;
+        padding: 15px 50px;
+        border: none;
+        border-radius: 35px;
+        background: #1a73e8;
+        color: white;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    .take-picture-btn:hover {
+        background: #0f5cd8;
+        transform: scale(1.05);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- Header -->
+<div class="header">
+    <h2>🌾 {% trans "Smart Farming Portal" %}</h2>
+    <div class="assistant-btn">✨ {% trans "AI Assistant" %}</div>
+</div>
+
+<!-- Selected Crops Section -->
+<div class="crops-section">
+    <div class="crops-header">
+        <h4>🌱 {% trans "Your Selected Crops" %}</h4>
+        <a href="{% url 'portal:select_crops' %}" class="add-crop-btn">+ {% trans "Change Crops" %}</a>
+    </div>
+    
+    <div class="crops-container">
+        {% if selected_crops %}
+            {% for crop in selected_crops %}
+                <div class="crop-item">
+                    <div class="crop-circle">{{ crop.emoji|default:"🌱" }}</div>
+                    <p>{{ crop.name }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="no-crops" style="width: 100%;">
+                <p>{% trans "No crops selected yet!" %}</p>
+                <a href="{% url 'portal:select_crops' %}">{% trans "Select Your Crops" %}</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Dashboard Cards -->
+<div class="dashboard">
+    <div class="card-box">
+        <h4>🌤 {% trans "Weather Update" %}</h4>
+        {% if temp %}
+            <p><strong>{{ temp }}°C</strong></p>
+            <p>{{ desc }}</p>
+        {% else %}
+            <p>{% trans "Weather data unavailable" %}</p>
+            <a href="{% url 'portal:weather' %}" class="btn btn-sm btn-outline-success">{% trans "Check Weather" %}</a>
+        {% endif %}
+    </div>
+
+    <div class="card-box warning">
+        <h4>⚠️ {% trans "Spraying Conditions" %}</h4>
+        <p>{% trans "Not recommended until evening due to wind speed." %}</p>
+        <a href="{% url 'portal:weather' %}" class="btn btn-sm btn-outline-primary mt-2">{% trans "View Details" %}</a>
+    </div>
+
+    <div class="card-box">
+        <h4>📅 {% trans "Upcoming Tasks" %}</h4>
+        <p>{% trans "No tasks for today" %}</p>
+        <a href="{% url 'portal:crop_calendar' %}" class="btn btn-sm btn-outline-success mt-2">{% trans "View Calendar" %}</a>
+    </div>
+</div>
+
+<!-- Disease Detection -->
+<div class="main-action">
+    <img src="https://cdn-icons-png.flaticon.com/512/2909/2909763.png" alt="{% trans "Disease Detection" %}">
+    <h3>{% trans "Disease Detection & Medicine Guide" %}</h3>
+    <p>{% trans "Upload crop image and get instant AI-based solution." %}</p>
+
+    <a href="{% url 'portal:detect_disease' %}">
+        <button class="take-picture-btn">📷 {% trans "Take a Picture" %}</button>
+    </a>
+</div>
+
+{% endblock %}

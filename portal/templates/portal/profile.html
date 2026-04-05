@@ -1,0 +1,87 @@
+{% extends "portal/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Farmer Profile" %}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+
+    <div class="card shadow-lg border-0 rounded-4 p-4">
+        
+        <!-- Header -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="text-success fw-bold mb-0">👤 {% trans "Farmer Profile" %}</h2>
+        </div>
+
+        <div class="row">
+            <!-- Left Section -->
+            <div class="col-md-6">
+                
+                <!-- Account Information -->
+                <div class="mb-4">
+                    <h5 class="text-muted">{% trans "Account Information" %}</h5>
+                    <hr>
+                    <p><strong>{% trans "Username" %}:</strong> {{ user.username }}</p>
+                    <p><strong>{% trans "Email" %}:</strong> {{ user.email }}</p>
+                </div>
+
+                <!-- Selected Crops -->
+                <div class="mb-4">
+                    <h5 class="text-muted">🌱 {% trans "Selected Crops" %}</h5>
+                    <hr>
+                    {% if request.session.selected_crops %}
+                        <ul class="list-group">
+                            {% for crop in request.session.selected_crops %}
+                                <li class="list-group-item">{{ crop }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <div class="alert alert-warning mt-2">
+                            {% trans "No crops selected yet." %}
+                        </div>
+                    {% endif %}
+                </div>
+
+            </div>
+            
+            <!-- Right Section -->
+            <div class="col-md-6">
+                
+                <!-- Additional Information -->
+                <div class="mb-4">
+                    <h5 class="text-muted">📋 {% trans "Additional Details" %}</h5>
+                    <hr>
+                    <p><strong>{% trans "First Name" %}:</strong> {{ user.first_name|default:"Not set" }}</p>
+                    <p><strong>{% trans "Last Name" %}:</strong> {{ user.last_name|default:"Not set" }}</p>
+                    <p><strong>{% trans "Date Joined" %}:</strong> {{ user.date_joined|date:"F d, Y" }}</p>
+                    <p><strong>{% trans "Last Login" %}:</strong> {{ user.last_login|date:"F d, Y H:i" }}</p>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="mb-4">
+                    <h5 class="text-muted">⚡ {% trans "Quick Actions" %}</h5>
+                    <hr>
+                    <div class="d-grid gap-2">
+                        <a href="{% url 'portal:settings' %}" class="btn btn-outline-success">
+                            ⚙️ {% trans "Edit Profile Settings" %}
+                        </a>
+                        <a href="{% url 'portal:select_crops' %}" class="btn btn-outline-success">
+                            🌱 {% trans "Change Selected Crops" %}
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Back Button -->
+        <div class="text-end mt-4">
+            <a href="{% url 'portal:home' %}" class="btn btn-success px-4">
+                ⬅ {% trans "Back to Dashboard" %}
+            </a>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

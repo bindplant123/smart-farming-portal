@@ -1,0 +1,128 @@
+{% extends 'portal/base.html' %}
+
+{% block title %}Pesticide Calculator - Smart Farming{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center mb-4">🐛 Pesticide Calculator</h1>
+    
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <form method="POST" class="row g-3">
+                {% csrf_token %}
+                
+                <div class="col-md-6">
+                    <label class="form-label">🌱 Select Crop</label>
+                    <select name="crop" class="form-select" required>
+                        <option value="">-- Select a Crop --</option>
+                        {% for crop in crops %}
+                        <option value="{{ crop.id }}">{{ crop.emoji }} {{ crop.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="col-md-6">
+                    <label class="form-label">🐛 Pest Type</label>
+                    <select name="pest_type" class="form-select" required>
+                        <option value="">-- Select Pest Type --</option>
+                        <option value="insect">🦟 Insects (Aphids, Whiteflies)</option>
+                        <option value="fungus">🍄 Fungal Diseases</option>
+                        <option value="weed">🌿 Weeds</option>
+                        <option value="termite">🐜 Termites</option>
+                        <option value="borer">🪵 Borers</option>
+                    </select>
+                </div>
+                
+                <div class="col-md-4">
+                    <label class="form-label">📐 Land Size</label>
+                    <input type="number" name="land_size" class="form-control" value="1" min="0.1" step="0.1" required>
+                </div>
+                
+                <div class="col-md-2">
+                    <label class="form-label">Unit</label>
+                    <select name="land_unit" class="form-select">
+                        <option value="acre">Acre</option>
+                        <option value="bigha">Bigha</option>
+                    </select>
+                </div>
+                
+                <div class="col-12">
+                    <button type="submit" class="btn btn-success">Calculate Pesticide</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    {% if selected_crop %}
+    <div class="card shadow-sm">
+        <div class="card-header bg-success text-white">
+            <h4 class="mb-0">🧪 Pesticide Recommendations for {{ selected_crop.emoji }} {{ selected_crop.name }}</h4>
+        </div>
+        <div class="card-body">
+            <div class="row text-center mb-4">
+                <div class="col-md-6">
+                    <div class="p-4 bg-light rounded">
+                        <h5 class="text-primary">💊 Pesticide Name</h5>
+                        <h3>{{ pesticide_name }}</h3>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-4 bg-light rounded">
+                        <h5 class="text-warning">📏 Dose</h5>
+                        <h3>{{ dose }}</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="table-success">
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>🌾 Total Pesticide Needed</strong></td>
+                            <td><strong>{{ total }} ml</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>📅 Application Frequency</strong></td>
+                            <td>{{ frequency }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>🎯 Target Pests</strong></td>
+                            <td>{{ target }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="alert alert-warning mt-3">
+                <strong>⚠️ Safety Instructions:</strong>
+                <ul class="mb-0">
+                    <li>Wear protective gear (gloves, mask, goggles)</li>
+                    <li>Apply in early morning or evening</li>
+                    <li>Do not eat or smoke during application</li>
+                    <li>Wash hands thoroughly after use</li>
+                </ul>
+            </div>
+            
+            <div class="alert alert-info mt-3">
+                <strong>💡 Note:</strong> This is a general recommendation. 
+                For accurate diagnosis, consult agricultural experts.
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+    <div class="text-center mt-4">
+        <a href="{% url 'portal:home' %}" class="btn btn-secondary">⬅️ Back to Home</a>
+    </div>
+</div>
+
+<style>
+    .container { max-width: 800px; }
+</style>
+{% endblock %}

@@ -1,0 +1,155 @@
+{% extends "portal/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "My Crop Calendar" %}{% endblock %}
+
+{% block content %}
+
+<div class="container py-4">
+    
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="mb-0">📅 {% trans "My Smart Calendar" %}</h2>
+            <p class="text-muted">{% trans "Track all your farming activities" %}</p>
+        </div>
+        <a href="{% url 'portal:crop_calendar_calculator' %}" class="btn btn-success">
+            <i class="bi bi-plus-circle me-2"></i> {% trans "Add New Crop" %}
+        </a>
+    </div>
+
+    <!-- Legend -->
+    <div class="card mb-4">
+        <div class="card-body py-2">
+            <div class="row text-center">
+                <div class="col"><span class="badge bg-success p-2">🌱 {% trans "Sowing" %}</span></div>
+                <div class="col"><span class="badge bg-info text-dark p-2">💧 {% trans "Watering" %}</span></div>
+                <div class="col"><span class="badge bg-warning text-dark p-2">🧪 {% trans "Fertilizer" %}</span></div>
+                <div class="col"><span class="badge bg-danger p-2">🐛 {% trans "Pesticide" %}</span></div>
+                <div class="col"><span class="badge bg-primary p-2">🌾 {% trans "Harvest" %}</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upcoming Events -->
+    {% if upcoming_events %}
+    <div class="card mb-4 border-warning">
+        <div class="card-header bg-warning text-dark">
+            <h5 class="mb-0">⚠️ {% trans "Upcoming This Week" %}</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                {% for event in upcoming_events %}
+                <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="card h-100 border-warning shadow-sm">
+                        <div class="card-body">
+
+                            {% if event.event_type == 'sowing' %}
+                                <span class="badge bg-success">🌱 {% trans "Sowing" %}</span>
+                            {% elif event.event_type == 'fertilizer' %}
+                                <span class="badge bg-warning text-dark">🧪 {% trans "Fertilizer" %}</span>
+                            {% elif event.event_type == 'pesticide' %}
+                                <span class="badge bg-danger">🐛 {% trans "Pesticide" %}</span>
+                            {% elif event.event_type == 'watering' %}
+                                <span class="badge bg-info text-dark">💧 {% trans "Watering" %}</span>
+                            {% elif event.event_type == 'harvest' %}
+                                <span class="badge bg-primary">🌾 {% trans "Harvest" %}</span>
+                            {% endif %}
+
+                            <small class="d-block mt-2 text-muted">
+                                {{ event.crop_name }}
+                            </small>
+
+                            <h6 class="mt-2">📅 {{ event.event_date }}</h6>
+
+                            {% if event.recommendation %}
+                                <p class="text-success small mb-1">
+                                    💡 {{ event.recommendation }}
+                                </p>
+                            {% endif %}
+
+                            <a href="{% url 'portal:toggle_event_complete' event.id %}" 
+                               class="btn btn-sm btn-outline-success w-100 mt-2">
+                                {% trans "Mark as Done" %}
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- All Events -->
+    {% if events %}
+    <div class="row">
+        {% for event in events %}
+        <div class="col-md-6 col-lg-4 mb-3">
+            <div class="card h-100 {% if event.is_completed %}border-success{% endif %} shadow-sm">
+                <div class="card-body">
+
+                    {% if event.event_type == 'sowing' %}
+                        <span class="badge bg-success">🌱 {% trans "Sowing" %}</span>
+                    {% elif event.event_type == 'fertilizer' %}
+                        <span class="badge bg-warning text-dark">🧪 {% trans "Fertilizer" %}</span>
+                    {% elif event.event_type == 'pesticide' %}
+                        <span class="badge bg-danger">🐛 {% trans "Pesticide" %}</span>
+                    {% elif event.event_type == 'watering' %}
+                        <span class="badge bg-info text-dark">💧 {% trans "Watering" %}</span>
+                    {% elif event.event_type == 'harvest' %}
+                        <span class="badge bg-primary">🌾 {% trans "Harvest" %}</span>
+                    {% endif %}
+
+                    <small class="d-block mt-2 text-muted">
+                        {{ event.crop_name }}
+                    </small>
+
+                    <h5 class="mt-2">
+                        {% if event.is_completed %}<del>{% endif %}
+                        📅 {{ event.event_date }}
+                        {% if event.is_completed %}</del>{% endif %}
+                    </h5>
+
+                    {% if event.recommendation %}
+                        <p class="text-success small">
+                            💡 {{ event.recommendation }}
+                        </p>
+                    {% endif %}
+
+                    <!-- Actions -->
+                    <div class="d-flex justify-content-between mt-3">
+                        <a href="{% url 'portal:toggle_event_complete' event.id %}" 
+                           class="btn btn-sm {% if event.is_completed %}btn-success{% else %}btn-outline-success{% endif %}">
+                            {% if event.is_completed %}✅ {% trans "Done" %}{% else %}{% trans "Mark Done" %}{% endif %}
+                        </a>
+
+                        <a href="{% url 'portal:delete_crop_event' event.id %}" 
+                           class="btn btn-sm btn-outline-danger"
+                           onclick="return confirm('{% trans "Delete this event?" %}')">
+                            🗑️
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% else %}
+    <!-- Empty -->
+    <div class="text-center py-5">
+        <div style="font-size: 5rem;">📅</div>
+        <h4>{% trans "No Events Yet" %}</h4>
+        <p class="text-muted">{% trans "Start by adding your first crop" %}</p>
+        <a href="{% url 'portal:crop_calendar_calculator' %}" class="btn btn-success btn-lg">
+            ➕ {% trans "Create Calendar" %}
+        </a>
+    </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}

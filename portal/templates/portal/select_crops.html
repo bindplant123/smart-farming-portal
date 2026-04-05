@@ -1,0 +1,109 @@
+{% extends "portal/base.html" %}
+{% load i18n %}
+
+{% block title %}Select Crops{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+    
+    <!-- Debug Info -->
+    <div class="alert alert-info mb-4">
+        <strong>Debug:</strong> Total crops available: {{ crops|length }}
+    </div>
+
+    <!-- Heading -->
+    <div class="text-center mb-4">
+        <h2 class="fw-bold text-success">🌾 Select Your Crops</h2>
+        <p class="text-muted">Choose up to 8 crops</p>
+    </div>
+
+    <!-- Form -->
+    <form method="post" action="{% url 'portal:select_crops' %}" id="cropForm">
+        {% csrf_token %}
+
+        <div class="row g-3 justify-content-center">
+            {% if crops %}
+                {% for crop in crops %}
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card h-100 text-center p-3 crop-card" 
+                         onclick="selectCrop('{{ crop.id }}', '{{ crop.name }}')"
+                         id="crop_card_{{ crop.id }}"
+                         style="cursor: pointer; border: 2px solid #ddd; border-radius: 10px;">
+                        <div style="font-size: 2rem;">🌱</div>
+                        <div class="fw-bold">{{ crop.name }}</div>
+                        <input type="checkbox" 
+                               name="crops" 
+                               value="{{ crop.id }}" 
+                               id="crop_{{ crop.id }}"
+                               style="display: none;">
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-12 text-center">
+                    <div class="alert alert-danger">No crops found!</div>
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Selected Count -->
+        <div class="text-center mt-4">
+            <span class="badge bg-success fs-5" id="selectedCount">0</span> / 8 selected
+        </div>
+
+        <!-- Submit Button -->
+        {% if crops %}
+        <div class="text-center mt-3">
+            <button type="submit" class="btn btn-success btn-lg">
+                Continue to Dashboard ➜
+            </button>
+        </div>
+        {% endif %}
+    </form>
+
+</div>
+
+<style>
+.crop-card {
+    transition: all 0.3s;
+}
+.crop-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.crop-card.selected {
+    border-color: #2e7d32 !important;
+    background-color: #e8f5e9;
+}
+</style>
+
+<script>
+function selectCrop(cropId, cropName) {
+    const checkbox = document.getElementById('crop_' + cropId);
+    const card = document.getElementById('crop_card_' + cropId);
+    
+    // Toggle checkbox
+    checkbox.checked = !checkbox.checked;
+    
+    // Toggle visual class
+    if (checkbox.checked) {
+        card.classList.add('selected');
+    } else {
+        card.classList.remove('selected');
+    }
+    
+    // Update count
+    const checkedBoxes = document.querySelectorAll('input[name="crops"]:checked');
+    
+    if (checkedBoxes.length > 8) {
+        alert('Maximum 8 crops allowed!');
+        checkbox.checked = false;
+        card.classList.remove('selected');
+    }
+    
+    document.getElementById('selectedCount').innerText = checkedBoxes.length;
+}
+</script>
+
+{% endblock %}

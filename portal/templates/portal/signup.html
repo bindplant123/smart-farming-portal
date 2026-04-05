@@ -1,0 +1,141 @@
+{% extends "portal/clean_base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Sign Up" %}{% endblock %}
+
+{% block header_text %}{% trans "Create Your Account" %}{% endblock %}
+
+{% block content %}
+
+<div class="container py-4">
+    
+    <!-- Debug Info -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} mb-3">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- Signup Form -->
+    <form method="POST" action="{% url 'portal:signup' %}">
+        {% csrf_token %}
+
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                
+                <!-- Username -->
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">{% trans "Username" %} *</label>
+                    <input type="text" 
+                           name="username" 
+                           class="form-control" 
+                           placeholder="{% trans "Enter username" %}"
+                           required
+                           minlength="3"
+                           maxlength="150">
+                    <small class="text-muted">{% trans "At least 3 characters" %}</small>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">{% trans "Email" %} *</label>
+                    <input type="email" 
+                           name="email" 
+                           class="form-control" 
+                           placeholder="{% trans "Enter email" %}"
+                           required>
+                </div>
+
+                <!-- Password -->
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">{% trans "Password" %} *</label>
+                    <input type="password" 
+                           name="password" 
+                           class="form-control" 
+                           placeholder="{% trans "Create password" %}"
+                           required
+                           minlength="8">
+                    <small class="text-muted">{% trans "At least 8 characters" %}</small>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">{% trans "Confirm Password" %} *</label>
+                    <input type="password" 
+                           name="password_confirm" 
+                           class="form-control" 
+                           placeholder="{% trans "Confirm password" %}"
+                           required>
+                </div>
+
+                <!-- Terms -->
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="terms" required>
+                        <label class="form-check-label" for="terms">
+                            {% trans "I agree to the" %} <a href="#" class="text-success">{% trans "Terms & Conditions" %}</a>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-success btn-lg">
+                        <i class="bi bi-person-plus me-2"></i> {% trans "Create Account" %}
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+    <!-- Login Link -->
+    <div class="text-center mt-4">
+        <p class="text-muted">
+            {% trans "Already have an account?" %} 
+            <a href="{% url 'portal:login' %}" class="text-success fw-semibold">
+                {% trans "Login here" %}
+            </a>
+        </p>
+    </div>
+
+    <!-- Back to Home -->
+    <div class="text-center mt-2">
+        <a href="{% url 'portal:home' %}" class="text-success" style="font-size: 0.9rem;">
+            <i class="bi bi-house me-1"></i> {% trans "Back to Home" %}
+        </a>
+    </div>
+
+</div>
+
+<style>
+.form-control {
+    border-radius: 10px;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #2e7d32;
+    box-shadow: 0 0 0 0.2rem rgba(46, 125, 50, 0.15);
+}
+
+.btn-success {
+    border-radius: 10px;
+    background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
+    border: none;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #1b5e20 0%, #388e3c 100%);
+    transform: translateY(-2px);
+}
+
+.form-check-input:checked {
+    background-color: #2e7d32;
+    border-color: #2e7d32;
+}
+</style>
+
+{% endblock %}

@@ -1,0 +1,189 @@
+# Tamil translations for Smart Farming Portal
+msgid ""
+msgstr ""
+"Project-Id-Version: SmartFarmingPortal\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Smart Farming Portal"
+msgstr "ஸ்மார்ட் விவசாய போர்டல்"
+
+msgid "Profile"
+msgstr "சுயவிவரம்"
+
+msgid "Settings"
+msgstr "அமைப்புகள்"
+
+msgid "Logout"
+msgstr "வெளியேறு"
+
+msgid "Login"
+msgstr "உள்நுழைவு"
+
+msgid "Sign Up"
+msgstr "பதிவு செய்"
+
+msgid "Dashboard"
+msgstr "டாஷ்போர்டு"
+
+msgid "Community"
+msgstr "சமூகம்"
+
+msgid "Market"
+msgstr "சந்தை"
+
+msgid "Crop Calendar"
+msgstr "பயிர் நாட்காட்டி"
+
+msgid "Performance"
+msgstr "செயல்திறன்"
+
+msgid "Weather"
+msgstr "வானிலை"
+
+msgid "Fertilizer"
+msgstr "உரம்"
+
+msgid "Pesticides"
+msgstr "பூச்சிக்கொல்லி"
+
+msgid "Home"
+msgstr "முகப்பு"
+
+msgid "You"
+msgstr "நீங்கள்"
+
+msgid "Smart Farm Market"
+msgstr "ஸ்மார்ட் பண்ணை சந்தை"
+
+msgid "Search product..."
+msgstr "பொருளை தேடுங்கள்..."
+
+msgid "All"
+msgstr "அனைத்தும்"
+
+msgid "Seeds"
+msgstr "விதைகள்"
+
+msgid "Tools"
+msgstr "கருவிகள்"
+
+msgid "Organic"
+msgstr "இயற்கை"
+
+msgid "Stock"
+msgstr "கையிருப்பு"
+
+msgid "Out of Stock"
+msgstr "கையிருப்பு இல்லை"
+
+msgid "Add to Cart"
+msgstr "கார்ட்டில் சேர்"
+
+msgid "View"
+msgstr "பார்வை"
+
+msgid "No products available"
+msgstr "எந்த பொருளும் இல்லை"
+
+msgid "Back to Market"
+msgstr "சந்தைக்கு திரும்பு"
+
+msgid "Category"
+msgstr "வகை"
+
+msgid "Brand"
+msgstr "பிராண்டு"
+
+msgid "In Stock"
+msgstr "கையிருப்பில் உள்ளது"
+
+msgid "Description"
+msgstr "விவரம்"
+
+msgid "Language"
+msgstr "மொழி"
+
+msgid "Update Language"
+msgstr "மொழியை புதுப்பி"
+
+msgid "Account Settings"
+msgstr "கணக்கு அமைப்புகள்"
+
+msgid "Selected Crops"
+msgstr "தேர்ந்த பயிர்கள்"
+
+msgid "Update your crop preferences to get personalized recommendations."
+msgstr "தனிப்பயன் பரிந்துரைகளுக்கு உங்கள் பயிர் விருப்பங்களை புதுப்பிக்கவும்."
+
+msgid "Change Crops"
+msgstr "பயிர் மாற்று"
+
+msgid "Sign out of your account."
+msgstr "உங்கள் கணக்கிலிருந்து வெளியேறவும்."
+
+msgid "Back to Home"
+msgstr "முகப்புக்கு திரும்பு"
+
+msgid "Hello Farmer"
+msgstr "வணக்கம் விவசாயி"
+
+msgid "Sign in to manage your crops and agricultural activities"
+msgstr "உங்கள் பயிர்கள் மற்றும் விவசாய நடவடிக்கைகளை நிர்வகிக்க உள்நுழையவும்"
+
+msgid "Email or Phone Number"
+msgstr "மின்னஞ்சல் அல்லது தொலைபேசி எண்"
+
+msgid "Phone number must contain exactly 10 digits."
+msgstr "தொலைபேசி எண் சரியாக 10 இலக்கங்கள் இருக்க வேண்டும்."
+
+msgid "Password"
+msgstr "கடவுச்சொல்"
+
+msgid "Select Your Crop"
+msgstr "உங்கள் பயிரை தேர்ந்தெடுக்கவும்"
+
+msgid "Upload Crop Image for Detection"
+msgstr "கண்டறிதலுக்கு பயிர் படத்தை பதிவேற்றவும்"
+
+msgid "Select from Gallery"
+msgstr "கேலரியிலிருந்து தேர்வு"
+
+msgid "Take a Picture"
+msgstr "படம் எடு"
+
+msgid "Upload Image"
+msgstr "படம் பதிவேற்று"
+
+msgid "Select Language"
+msgstr "மொழியை தேர்ந்தெடுக்கவும்"
+
+msgid "Choose Your Language"
+msgstr "உங்கள் மொழியை தேர்ந்தெடுக்கவும்"
+
+msgid "Create Your Account"
+msgstr "உங்கள் கணக்கை உருவாக்கவும்"
+
+msgid "Market & Fertilizers"
+msgstr "சந்தை மற்றும் உரங்கள்"
+
+msgid "Fertilizer Recommendations"
+msgstr "உர பரிந்துரைகள்"
+
+msgid "Optimized for your selected crop:"
+msgstr "உங்கள் தேர்ந்த பயிருக்கு தகுந்தவாறு:"
+
+msgid "Suggested Fertilizer"
+msgstr "பரிந்துரைக்கப்பட்ட உரம்"
+
+msgid "Standard Quantity"
+msgstr "நிலையான அளவு"
+
+msgid "Current Market Rate"
+msgstr "தற்போதைய சந்தை விலை"
+
+msgid "Locate Nearest Seller"
+msgstr "அருகிலுள்ள விற்பனையாளரை கண்டுபிடி"

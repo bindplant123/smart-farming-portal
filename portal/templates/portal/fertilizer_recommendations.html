@@ -1,0 +1,49 @@
+{% extends "portal/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Market & Fertilizers" %}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card shadow border-0" style="border-radius: 15px;">
+        <!-- Card Header -->
+        <div class="card-header bg-success text-white p-4" style="border-radius: 15px 15px 0 0;">
+            <h2 class="mb-0">🛒 {% trans "Fertilizer Recommendations" %}</h2>
+            <p class="mb-0">
+                {% trans "Optimized for your selected crop:" %} 
+                <strong>{{ crop|title }}</strong>
+            </p>
+        </div>
+
+        <!-- Card Body -->
+        <div class="card-body p-4">
+            <div class="row align-items-center">
+                <!-- Fertilizer Info -->
+                <div class="col-md-6">
+                    <h4 class="text-success">{% trans "Suggested Fertilizer" %}</h4>
+                    <p class="display-6 fw-bold">{{ data.fert }}</p>
+                    <hr>
+                    <p class="text-muted">
+                        {% trans "Standard Quantity" %}: {{ data.qty }}
+                    </p>
+                </div>
+
+                <!-- Price Info -->
+                <div class="col-md-6 text-center">
+                    <div class="p-4 bg-light rounded-circle d-inline-block border">
+                        <h3 class="mb-0 text-success">{{ data.price }}</h3>
+                        <small>{% trans "Current Market Rate" %}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card Footer -->
+        <div class="card-footer bg-white p-3 text-center">
+            <button class="btn btn-outline-success">
+                {% trans "Locate Nearest Seller" %}
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock %}

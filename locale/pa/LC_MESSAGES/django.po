@@ -1,0 +1,174 @@
+# Punjabi translations for Smart Farming Portal
+msgid ""
+msgstr ""
+"Project-Id-Version: SmartFarmingPortal\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Smart Farming Portal"
+msgstr "ਸਮਾਰਟ ਖੇਤੀ ਪੋਰਟਲ"
+
+msgid "Profile"
+msgstr "ਪ੍ਰੋਫਾਈਲ"
+
+msgid "Settings"
+msgstr "ਸੈਟਿੰਗਾਂ"
+
+msgid "Logout"
+msgstr "ਲੌਗਆਉਟ"
+
+msgid "Login"
+msgstr "ਲੌਗਇਨ"
+
+msgid "Sign Up"
+msgstr "ਸਾਈਨ ਅੱਪ"
+
+msgid "Dashboard"
+msgstr "ਡੈਸ਼ਬੋਰਡ"
+
+msgid "Community"
+msgstr "ਭਾਈਚਾਰਾ"
+
+msgid "Market"
+msgstr "ਬਾਜ਼ਾਰ"
+
+msgid "Crop Calendar"
+msgstr "ਫਸਲ ਕੈਲੰਡਰ"
+
+msgid "Performance"
+msgstr "ਪ੍ਰਦਰਸ਼ਨ"
+
+msgid "Weather"
+msgstr "ਮੌਸਮ"
+
+msgid "Fertilizer"
+msgstr "ਖਾਦ"
+
+msgid "Pesticides"
+msgstr "ਕੀਟਨਾਸ਼ਕ"
+
+msgid "Home"
+msgstr "ਹੋਮ"
+
+msgid "You"
+msgstr "ਤੁਸੀਂ"
+
+msgid "Smart Farm Market"
+msgstr "ਸਮਾਰਟ ਫਾਰਮ ਬਾਜ਼ਾਰ"
+
+msgid "Search product..."
+msgstr "ਉਤਪਾਦ ਖੋਜੋ..."
+
+msgid "All"
+msgstr "ਸਾਰੇ"
+
+msgid "Seeds"
+msgstr "ਬੀਜ"
+
+msgid "Tools"
+msgstr "ਸੰਦ"
+
+msgid "Organic"
+msgstr "ਜੈਵਿਕ"
+
+msgid "Stock"
+msgstr "ਸਟਾਕ"
+
+msgid "Out of Stock"
+msgstr "ਸਟਾਕ ਨਹੀਂ"
+
+msgid "Add to Cart"
+msgstr "ਕਾਰਟ ਵਿੱਚ ਪਾਓ"
+
+msgid "View"
+msgstr "ਵੇਖੋ"
+
+msgid "No products available"
+msgstr "ਕੋਈ ਉਤਪਾਦ ਉਪਲਬਧ ਨਹੀਂ"
+
+msgid "Back to Market"
+msgstr "ਬਾਜ਼ਾਰ ਤੇ ਵਾਪਸ"
+
+msgid "Category"
+msgstr "ਸ਼੍ਰੇਣੀ"
+
+msgid "Brand"
+msgstr "ਬ੍ਰਾਂਡ"
+
+msgid "In Stock"
+msgstr "ਸਟਾਕ ਵਿੱਚ ਹੈ"
+
+msgid "Description"
+msgstr "ਵੇਰਵਾ"
+
+msgid "Language"
+msgstr "ਭਾਸ਼ਾ"
+
+msgid "Update Language"
+msgstr "ਭਾਸ਼ਾ ਅਪਡੇਟ ਕਰੋ"
+
+msgid "Account Settings"
+msgstr "ਖਾਤਾ ਸੈਟਿੰਗਾਂ"
+
+msgid "Selected Crops"
+msgstr "ਚੁਣੀਆਂ ਫਸਲਾਂ"
+
+msgid "Update your crop preferences to get personalized recommendations."
+msgstr "ਵਿਅਕਤੀਗਤ ਸੁਝਾਅ ਲੈਣ ਲਈ ਆਪਣੀਆਂ ਫਸਲ ਤਰਜੀਹਾਂ ਅਪਡੇਟ ਕਰੋ।"
+
+msgid "Change Crops"
+msgstr "ਫਸਲਾਂ ਬਦਲੋ"
+
+msgid "Sign out of your account."
+msgstr "ਆਪਣੇ ਖਾਤੇ ਤੋਂ ਸਾਈਨ ਆਉਟ ਕਰੋ।"
+
+msgid "Back to Home"
+msgstr "ਹੋਮ ਤੇ ਵਾਪਸ"
+
+msgid "Hello Farmer"
+msgstr "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਕਿਸਾਨ"
+
+msgid "Sign in to manage your crops and agricultural activities"
+msgstr "ਆਪਣੀਆਂ ਫਸਲਾਂ ਅਤੇ ਖੇਤੀਬਾੜੀ ਗਤੀਵਿਧੀਆਂ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰਨ ਲਈ ਸਾਈਨ ਇਨ ਕਰੋ"
+
+msgid "Email or Phone Number"
+msgstr "ਈਮੇਲ ਜਾਂ ਫੋਨ ਨੰਬਰ"
+
+msgid "Phone number must contain exactly 10 digits."
+msgstr "ਫੋਨ ਨੰਬਰ ਵਿੱਚ ਬਿਲਕੁਲ 10 ਅੰਕ ਹੋਣੇ ਚਾਹੀਦੇ ਹਨ।"
+
+msgid "Password"
+msgstr "ਪਾਸਵਰਡ"
+
+msgid "Select Your Crop"
+msgstr "ਆਪਣੀ ਫਸਲ ਚੁਣੋ"
+
+msgid "Select Language"
+msgstr "ਭਾਸ਼ਾ ਚੁਣੋ"
+
+msgid "Choose Your Language"
+msgstr "ਆਪਣੀ ਭਾਸ਼ਾ ਚੁਣੋ"
+
+msgid "Create Your Account"
+msgstr "ਆਪਣਾ ਖਾਤਾ ਬਣਾਓ"
+
+msgid "Market & Fertilizers"
+msgstr "ਬਾਜ਼ਾਰ ਅਤੇ ਖਾਦ"
+
+msgid "Fertilizer Recommendations"
+msgstr "ਖਾਦ ਸਿਫਾਰਿਸ਼ਾਂ"
+
+msgid "Suggested Fertilizer"
+msgstr "ਸੁਝਾਈ ਖਾਦ"
+
+msgid "Standard Quantity"
+msgstr "ਮਿਆਰੀ ਮਾਤਰਾ"
+
+msgid "Current Market Rate"
+msgstr "ਮੌਜੂਦਾ ਬਾਜ਼ਾਰ ਦਰ"
+
+msgid "Locate Nearest Seller"
+msgstr "ਨਜ਼ਦੀਕੀ ਵਿਕ੍ਰੇਤਾ ਲੱਭੋ"

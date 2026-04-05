@@ -1,0 +1,126 @@
+{% extends "portal/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+{% trans "Your Cart" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4 mb-5">
+
+```
+<h2 class="text-success fw-bold mb-4">🛒 {% trans "Your Cart" %}</h2>
+
+{% if cart_items %}
+
+<div class="card shadow-sm">
+    <div class="card-body">
+
+        <div class="table-responsive">
+            <table class="table table-bordered align-middle text-center">
+
+                <thead class="table-light">
+                    <tr>
+                        <th>{% trans "Product" %}</th>
+                        <th>{% trans "Quantity" %}</th>
+                        <th>{% trans "Price" %}</th>
+                        <th>{% trans "Total" %}</th>
+                        <th>{% trans "Action" %}</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for item in cart_items %}
+                    <tr>
+
+                        <td class="text-start">
+                            <strong>{{ item.product.name }}</strong>
+                        </td>
+
+                        <td>
+                            {{ item.quantity }}
+                        </td>
+
+                        <td>
+                            ₹{{ item.product.price }}
+                        </td>
+
+                        <td>
+                            <strong class="text-success">
+                                ₹{{ item.total_price }}
+                            </strong>
+                        </td>
+
+                        <td>
+                            <a href="{% url 'portal:remove_from_cart' item.product.id %}"
+                               class="btn btn-sm btn-danger">
+                               ❌ {% trans "Remove" %}
+                            </a>
+                        </td>
+
+                    </tr>
+                    {% empty %}
+
+                    <tr>
+                        <td colspan="5" class="text-center">
+                            {% trans "No items in your cart." %}
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+        </div>
+
+        <hr>
+
+        <div class="d-flex justify-content-between align-items-center mt-4">
+
+            <a href="{% url 'portal:market' %}" class="btn btn-outline-success">
+                ← {% trans "Continue Shopping" %}
+            </a>
+
+            <div class="text-end">
+
+                <h5 class="mb-3">
+                    {% trans "Grand Total" %} :
+                    <strong class="text-success">
+                        ₹{{ grand_total }}
+                    </strong>
+                </h5>
+
+                <a href="{% url 'portal:checkout' %}"
+                   class="btn btn-success btn-lg">
+                    💳 {% trans "Buy Now" %}
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% else %}
+
+<div class="alert alert-info text-center">
+    🛒 {% trans "Your cart is empty." %}
+</div>
+
+<div class="text-center mt-3">
+    <a href="{% url 'portal:market' %}" class="btn btn-success">
+        🛍 {% trans "Go to Marketplace" %}
+    </a>
+</div>
+
+{% endif %}
+```
+
+</div>
+
+{% endblock %}

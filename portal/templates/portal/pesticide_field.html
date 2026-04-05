@@ -1,0 +1,46 @@
+{% extends 'portal/base.html' %}
+
+{% block title %}Field Crop Pesticides - Smart Farming{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>🌾 Field Crop Pesticides</h1>
+    
+    <div class="categories">
+        <a href="{% url 'portal:pesticide_home' %}" class="cat-btn">🐛 All Pesticides</a>
+        <a href="{% url 'portal:pesticide_field' %}" class="cat-btn active">🌾 Field Crops</a>
+        <a href="{% url 'portal:pesticide_trees' %}" class="cat-btn">🌳 Trees</a>
+    </div>
+    
+    <div class="products-grid">
+        {% for p in pesticides %}
+        <div class="product-card">
+            <div class="product-image">{{ p.image }}</div>
+            <h3>{{ p.name }}</h3>
+            <p class="type">For: {{ p.crop }}</p>
+            <p class="price">₹{{ p.price }}</p>
+            <button class="btn-add">Add to Cart</button>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <a href="{% url 'portal:home' %}" class="btn-back">⬅️ Back to Home</a>
+</div>
+
+<style>
+    .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+    h1 { text-align: center; color: #2c3e50; margin-bottom: 20px; }
+    
+    .categories { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
+    .cat-btn { padding: 10px 20px; background: #e0e0e0; text-decoration: none; border-radius: 20px; color: #333; }
+    .cat-btn.active { background: #28a745; color: white; }
+    
+    .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .product-card { background: white; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .product-image { font-size: 50px; margin-bottom: 10px; }
+    .type { color: #666; font-size: 14px; }
+    .price { font-size: 24px; font-weight: bold; color: #28a745; }
+    .btn-add { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    .btn-back { display: inline-block; margin-top: 30px; padding: 12px 25px; background: #6c757d; color: white; text-decoration: none; border-radius: 5px; }
+</style>
+{% endblock %}
